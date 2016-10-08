@@ -11,7 +11,7 @@
     <title></title>
 </head>
 <body>
-  </p><a href="/help">Help</a> <br/>
+  </p><a href="/help.jsp">Help</a> <br/>
   <a href="/connectServer">Connect to a Server</a> <br/>
   <a href="/connectDataBase">Connect to a Data Base</a> <br/>
   <a href="/createDataBase">Create Data Base</a> <br/>

@@ -11,6 +11,7 @@
     <title></title>
 </head>
 <body>
+<a href="menu.jsp"> goto menu</a>
 <ul>
   <li>
     <p>connect-server</p>
@@ -90,5 +91,6 @@
     <p>Close connection to a database and exit</p>
   </li>
 </ul>
+<a href="menu.jsp"> goto menu</a>
 </body>
 </html>

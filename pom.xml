@@ -9,8 +9,8 @@
         <module.name>a2048</module.name>
     </properties>
 
-    <groupId>ua.com.juja.ferkel13</groupId>
-    <artifactId>sql-cmd</artifactId>
+    <groupId>my.project.DataBaseManager</groupId>
+    <artifactId>DataBaseManager-EE</artifactId>
     <version>0.0.1</version>
 
     <dependencies>

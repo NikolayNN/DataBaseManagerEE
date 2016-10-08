@@ -12,28 +12,16 @@ import java.io.PrintWriter;
  */
 public class MainServlet extends HttpServlet {
 
-    private String message;
+    @Override
+    protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String requestUrl = req.getRequestURI();
+        String action = requestUrl.substring(req.getContextPath().length(), requestUrl.length());
 
-    public void init() throws ServletException
-    {
-        // Do required initialization
-        message = "Hello World";
-    }
+        if(action.startsWith("/menu")){
+            req.getRequestDispatcher("menu.jsp").forward(req, resp);
+        }else if(action.startsWith("/help")) {
+            req.getRequestDispatcher("help.jsp").forward(req, resp);
+        }
 
-    public void doGet(HttpServletRequest request,
-                      HttpServletResponse response)
-            throws ServletException, IOException
-    {
-        // Set response content type
-        response.setContentType("text/html");
-
-        // Actual logic goes here.
-        PrintWriter out = response.getWriter();
-        out.println("<h1>" + message + "</h1>");
-    }
-
-    public void destroy()
-    {
-        // do nothing.
     }
 }

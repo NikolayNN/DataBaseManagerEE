@@ -13,7 +13,7 @@ import java.io.PrintWriter;
 public class MainServlet extends HttpServlet {
 
     @Override
-    protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String requestUrl = req.getRequestURI();
         String action = requestUrl.substring(req.getContextPath().length(), requestUrl.length());
 
@@ -21,6 +21,8 @@ public class MainServlet extends HttpServlet {
             req.getRequestDispatcher("menu.jsp").forward(req, resp);
         }else if(action.startsWith("/help")) {
             req.getRequestDispatcher("help.jsp").forward(req, resp);
+        }else{
+            req.getRequestDispatcher("error.jsp").forward(req, resp);
         }
 
     }

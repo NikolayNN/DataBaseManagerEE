@@ -30,6 +30,10 @@ public class MainServlet extends HttpServlet {
         if (action.startsWith("/menu") || action.equals("/")) {
             req.setAttribute("items", service.commandList());
             req.getRequestDispatcher("menu.jsp").forward(req, resp);
+        }else if(action.startsWith("/help")){
+            req.getRequestDispatcher("help.jsp").forward(req, resp);
+        }else{
+            req.getRequestDispatcher("error.jsp").forward(req, resp);
         }
     }
     private String getAction(HttpServletRequest req) {

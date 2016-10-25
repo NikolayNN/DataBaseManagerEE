@@ -11,6 +11,6 @@
     <title></title>
 </head>
 <body>
-  <p>Error. you can goto <a href="menu.jsp">menu</a> <p>
+  <p>Error. you can goto <a href="/">menu</a> <p>
 </body>
 </html>

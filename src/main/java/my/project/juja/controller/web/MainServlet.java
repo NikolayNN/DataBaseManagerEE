@@ -3,13 +3,11 @@ package my.project.juja.controller.web;
 import my.project.juja.service.Service;
 import my.project.juja.service.ServiceImpl;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.PrintWriter;
 
 /**
  * Created by Nikol on 10/8/2016.
@@ -20,7 +18,6 @@ public class MainServlet extends HttpServlet {
     @Override
     public void init() throws ServletException {
         super.init();
-
         service = new ServiceImpl();
     }
 
@@ -32,7 +29,9 @@ public class MainServlet extends HttpServlet {
             req.getRequestDispatcher("menu.jsp").forward(req, resp);
         }else if(action.startsWith("/help")){
             req.getRequestDispatcher("help.jsp").forward(req, resp);
-        }else{
+        }else if(action.startsWith("/connect")) {
+            req.getRequestDispatcher("connect.jsp").forward(req, resp);
+        }else {
             req.getRequestDispatcher("error.jsp").forward(req, resp);
         }
     }

@@ -1,7 +1,7 @@
 package my.project.juja.controller;
 
 import my.project.juja.controller.commands.Command;
-import my.project.juja.model.DataBase;
+import my.project.juja.model.PostgresDataBase;
 import my.project.juja.model.Storeable;
 import my.project.juja.view.Console;
 import my.project.juja.view.View;
@@ -12,7 +12,7 @@ import my.project.juja.view.View;
 public class Controller {
     public void start() {
         View view = new Console();
-        Storeable store = new DataBase();
+        Storeable store = new PostgresDataBase();
         CommandFactory commandFactory = new MainCommandFactory(store, view);
         view.writeln("Hello");
         String source = "";

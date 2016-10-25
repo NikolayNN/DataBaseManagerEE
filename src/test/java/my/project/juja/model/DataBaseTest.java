@@ -17,7 +17,7 @@ import static org.junit.Assert.assertEquals;
  * Created by Nikol on 4/15/2016.
  */
 public class DataBaseTest {
-    private DataBase dataBase;
+    private PostgresDataBase dataBase;
     private static String tableName;
     private static TestDataBase testDB;
 
@@ -36,7 +36,7 @@ public class DataBaseTest {
 
     @Before
     public void setup() {
-        dataBase = new DataBase();
+        dataBase = new PostgresDataBase();
         dataBase.connectToServer(testDB.getServerURL(), testDB.getLogin(), testDB.getPassword());
         dataBase.connectToDataBase(testDB.getDbName());
         testDB.createTestTable();

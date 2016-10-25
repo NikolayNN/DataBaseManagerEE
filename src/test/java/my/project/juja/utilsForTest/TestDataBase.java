@@ -1,6 +1,6 @@
 package my.project.juja.utilsForTest;
 
-import my.project.juja.model.DataBase;
+import my.project.juja.model.PostgresDataBase;
 import my.project.juja.model.Storeable;
 import my.project.juja.model.table.CellInfo;
 import my.project.juja.model.table.Row;
@@ -8,7 +8,6 @@ import my.project.juja.model.table.Table;
 
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
@@ -33,7 +32,7 @@ public class TestDataBase {
     public TestDataBase() {
 
         properties = getProperties();
-        store = new DataBase();
+        store = new PostgresDataBase();
         serverURL = properties.getProperty("server.url");
         login = properties.getProperty("server.login");
         password = properties.getProperty("server.password");

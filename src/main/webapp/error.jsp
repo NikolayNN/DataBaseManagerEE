@@ -11,6 +11,7 @@
     <title></title>
 </head>
 <body>
-  <p>Error. you can goto <a href="/">menu</a> <p>
+    ${message}<br>
+    <p>Error. you can goto <a href="/">menu</a><p>
 </body>
 </html>

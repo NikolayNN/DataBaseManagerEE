@@ -10,7 +10,7 @@ import my.project.juja.view.View;
  * Created by Nikol on 5/13/2016.
  */
 public class Controller {
-    public void start() {
+    public void  start() {
         View view = new Console();
         Storeable store = new PostgresDataBase();
         CommandFactory commandFactory = new MainCommandFactory(store, view);

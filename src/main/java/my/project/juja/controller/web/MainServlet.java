@@ -27,16 +27,36 @@ public class MainServlet extends HttpServlet {
         if (action.startsWith("/menu") || action.equals("/")) {
             req.setAttribute("items", service.commandList());
             req.getRequestDispatcher("menu.jsp").forward(req, resp);
-        }else if(action.startsWith("/help")){
+        } else if (action.startsWith("/help")) {
             req.getRequestDispatcher("help.jsp").forward(req, resp);
-        }else if(action.startsWith("/connect")) {
+        } else if (action.startsWith("/connect")) {
             req.getRequestDispatcher("connect.jsp").forward(req, resp);
-        }else {
+        } else {
             req.getRequestDispatcher("error.jsp").forward(req, resp);
         }
     }
+
     private String getAction(HttpServletRequest req) {
         String requestURI = req.getRequestURI();
         return requestURI.substring(req.getContextPath().length(), requestURI.length());
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        {
+            String action = getAction(req);
+            if (action.startsWith("/connectToServer")) {
+                String databaseName = req.getParameter("serverurl");
+                String userName = req.getParameter("username");
+                String password = req.getParameter("password");
+                try {
+                    service.connect(databaseName, userName, password);
+                    resp.sendRedirect(resp.encodeRedirectURL("menu"));
+                } catch (Exception e) {
+                    req.setAttribute("message", e.getMessage());
+                    req.getRequestDispatcher("error.jsp").forward(req, resp);
+                }
+            }
+        }
     }
 }

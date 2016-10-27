@@ -30,7 +30,7 @@ public class MainServlet extends HttpServlet {
         } else if (action.startsWith("/help")) {
             req.getRequestDispatcher("help.jsp").forward(req, resp);
         } else if (action.startsWith("/connect")) {
-            req.getRequestDispatcher("connect.jsp").forward(req, resp);
+            req.getRequestDispatcher("connectToServer.jsp").forward(req, resp);
         } else {
             req.getRequestDispatcher("error.jsp").forward(req, resp);
         }

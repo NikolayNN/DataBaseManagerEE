@@ -34,6 +34,9 @@ public class MainServlet extends HttpServlet {
         }else if (action.startsWith("/connectToDataBase")) {
             req.setAttribute("dbnames", service.getDataBaseNames());
             req.getRequestDispatcher("connectToDataBase.jsp").forward(req, resp);
+        }else if (action.startsWith("/tableList")) {
+            req.setAttribute("tables", service.getTableList());
+            req.getRequestDispatcher("tableList.jsp").forward(req, resp);
         }
         else {
             req.getRequestDispatcher("error.jsp").forward(req, resp);

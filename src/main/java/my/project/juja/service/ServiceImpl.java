@@ -33,8 +33,13 @@ public class ServiceImpl implements Service {
     }
 
     @Override
+    public Set<String> getTableList() {
+        return store.getTableList();
+    }
+
+    @Override
     public List<String> commandList() {
-        return Arrays.asList("help", "menu", "connectToServer", "connectToDataBase");
+        return Arrays.asList("help", "menu", "connectToServer", "connectToDataBase", "tableList");
     }
 
 

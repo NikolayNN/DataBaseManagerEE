@@ -13,5 +13,7 @@ public interface Service {
 
     Set<String> getDataBaseNames();
 
+    Set<String> getTableList();
+
     List<String> commandList();
 }

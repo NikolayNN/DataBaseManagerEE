@@ -29,9 +29,13 @@ public class MainServlet extends HttpServlet {
             req.getRequestDispatcher("menu.jsp").forward(req, resp);
         } else if (action.startsWith("/help")) {
             req.getRequestDispatcher("help.jsp").forward(req, resp);
-        } else if (action.startsWith("/connect")) {
+        } else if (action.startsWith("/connectToServer")) {
             req.getRequestDispatcher("connectToServer.jsp").forward(req, resp);
-        } else {
+        }else if (action.startsWith("/connectToDataBase")) {
+            req.setAttribute("dbnames", service.getDataBaseNames());
+            req.getRequestDispatcher("connectToDataBase.jsp").forward(req, resp);
+        }
+        else {
             req.getRequestDispatcher("error.jsp").forward(req, resp);
         }
     }
@@ -50,7 +54,17 @@ public class MainServlet extends HttpServlet {
                 String userName = req.getParameter("username");
                 String password = req.getParameter("password");
                 try {
-                    service.connect(databaseName, userName, password);
+                    service.connectToServer(databaseName, userName, password);
+                    resp.sendRedirect(resp.encodeRedirectURL("menu"));
+                } catch (Exception e) {
+                    req.setAttribute("message", e.getMessage());
+                    req.getRequestDispatcher("error.jsp").forward(req, resp);
+                }
+            }
+            if (action.startsWith("/connectToDataBase")) {
+                String databaseName = req.getParameter("dbname");
+                try {
+                    service.connectToDataBase(databaseName);
                     resp.sendRedirect(resp.encodeRedirectURL("menu"));
                 } catch (Exception e) {
                     req.setAttribute("message", e.getMessage());

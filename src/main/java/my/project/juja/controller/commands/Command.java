@@ -14,8 +14,8 @@ import java.util.Set;
 public abstract class Command {
     public static final String HELP = "help";
     public static final String EXIT = "exit";
-    public static final String CONNECTION_TO_DB = "connect-db";
-    public static final String CONNECTION_TO_SERVER = "connect-server";
+    public static final String CONNECTION_TO_DB = "connectToServer-db";
+    public static final String CONNECTION_TO_SERVER = "connectToServer-server";
     public static final String TABLE_LIST = "table-list";
     public static final String TABLE_DATA = "table-data";
     public static final String ADD_RECORD = "add-record";
@@ -89,7 +89,7 @@ public abstract class Command {
         if (store.getConnectToServer() != null) {
             return true;
         } else {
-            throw new RuntimeException("ERROR. at first connect to server");
+            throw new RuntimeException("ERROR. at first connectToServer to server");
         }
     }
 
@@ -98,7 +98,7 @@ public abstract class Command {
         if (store.getConnectToDataBase() != null) {
             return true;
         } else {
-            throw new RuntimeException("ERROR. at first connect to database");
+            throw new RuntimeException("ERROR. at first connectToServer to database");
         }
     }
 

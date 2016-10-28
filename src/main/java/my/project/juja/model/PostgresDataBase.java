@@ -16,9 +16,9 @@ public class PostgresDataBase implements Storeable {
     private static final String ERROR_WRONG_TABLENAME = "ERROR. check table name";
     private static final String ERROR_WRONG_COMMAND = "ERROR. check inputed commands";
     private static final String ERROR_JDBCDRIVER_NOT_FOUND = "ERROR. add jdbc driver to project";
-    private static final String ERROR_CONNECT_UNSUCCESSFUL = "ERROR. connect to database unsuccessful, check your command.";
-    private static final String ERROR_CONNECTION_NOT_EXIST = "ERROR. connect to database";
-    private static final String ERROR_CONNECTION_TO_SERVER_NOT_EXIST = "ERROR. At first connect to a server.";
+    private static final String ERROR_CONNECT_UNSUCCESSFUL = "ERROR. connectToServer to database unsuccessful, check your command.";
+    private static final String ERROR_CONNECTION_NOT_EXIST = "ERROR. connectToServer to database";
+    private static final String ERROR_CONNECTION_TO_SERVER_NOT_EXIST = "ERROR. At first connectToServer to a server.";
     private Connection connectionDataBase;
     private Connection connectionServer;
     private String serverUrl;

@@ -71,11 +71,11 @@ public class IntegrationTest {
         //then
         String expected = "Hello\n" +
                 "Input your command or 'help'\n" +
-                "connect-server\n" +
-                "\t - Connect to a server 'connect-server|serverUrl|login|password'\n" +
-                "\t * Example: 'connect-server|localhost:5432|postgres|root'\n" +
-                "connect-db\n" +
-                "\t - Connect to database 'connect-db|dbname'\n" +
+                "connectToServer-server\n" +
+                "\t - Connect to a server 'connectToServer-server|serverUrl|login|password'\n" +
+                "\t * Example: 'connectToServer-server|localhost:5432|postgres|root'\n" +
+                "connectToServer-db\n" +
+                "\t - Connect to database 'connectToServer-db|dbname'\n" +
                 "disconnect-db\n" +
                 "\t - disonnect current database 'disconnect-db'\n" +
                 "list-db\n" +
@@ -185,7 +185,7 @@ public class IntegrationTest {
         //then
         String expected = "Hello\n" +
                 "Input your command or 'help'\n" +
-                "ERROR. At first connect to a server.\n" +
+                "ERROR. At first connectToServer to a server.\n" +
                 "Input your command or 'help'\n" +
                 "Goodbye\n";
         assertEquals(TestUtils.replaceLineSeparator(expected), getData());
@@ -201,7 +201,7 @@ public class IntegrationTest {
         //then
         String expected = "Hello\n" +
                 "Input your command or 'help'\n" +
-                "ERROR. at first connect to server\n" +
+                "ERROR. at first connectToServer to server\n" +
                 "Input your command or 'help'\n" +
                 "Goodbye\n";
         assertEquals(TestUtils.replaceLineSeparator(expected), getData());
@@ -263,7 +263,7 @@ public class IntegrationTest {
                 "Input your command or 'help'\n" +
                 "Connect to the server successful!\n" +
                 "Input your command or 'help'\n" +
-                "ERROR. connect to database unsuccessful, check your command. FATAL: database \"WrongTableName\" does not exist\n" +
+                "ERROR. connectToServer to database unsuccessful, check your command. FATAL: database \"WrongTableName\" does not exist\n" +
                 "Input your command or 'help'\n" +
                 "Goodbye\n";
         assertEquals(TestUtils.replaceLineSeparator(expected), getData());
@@ -284,9 +284,9 @@ public class IntegrationTest {
         //then
         String expected = "Hello\n" +
                 "Input your command or 'help'\n" +
-                "ERROR. connect to database unsuccessful, check your command. FATAL: password authentication failed for user \"WrongLogin\"\n" +
+                "ERROR. connectToServer to database unsuccessful, check your command. FATAL: password authentication failed for user \"WrongLogin\"\n" +
                 "Input your command or 'help'\n" +
-                "ERROR. connect to database unsuccessful, check your command. The connection attempt failed.\n" +
+                "ERROR. connectToServer to database unsuccessful, check your command. The connection attempt failed.\n" +
                 "Input your command or 'help'\n" +
                 "Goodbye\n";
         assertEquals(TestUtils.replaceLineSeparator(expected), getData());
@@ -461,7 +461,7 @@ public class IntegrationTest {
         //then
         String expected = "Hello\n" +
                 "Input your command or 'help'\n" +
-                "ERROR. at first connect to server\n" +
+                "ERROR. at first connectToServer to server\n" +
                 "Input your command or 'help'\n" +
                 "Goodbye\n";
         assertEquals(TestUtils.replaceLineSeparator(expected), getData());

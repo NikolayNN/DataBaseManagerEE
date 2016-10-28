@@ -12,7 +12,7 @@
     <table>
         <tr>
             <td>Data Base name</td>
-            <td><input type="text" name="dbname" required/></td>
+            <td><input type="text" name="dbname" value="sqlcmd" required/></td>
         </tr>
         <tr>
             <td></td>

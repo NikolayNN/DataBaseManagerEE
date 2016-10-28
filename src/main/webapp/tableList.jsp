@@ -8,5 +8,6 @@
     <c:forEach items="${tables}" var="table">
         <p>${table}</p>
     </c:forEach>
+    <a href="menu">menu</a>
 </body>
 </html>

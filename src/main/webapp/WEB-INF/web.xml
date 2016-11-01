@@ -5,12 +5,12 @@
          version="3.1">
     <display-name>DataBaseManagerEE</display-name>
     <servlet>
-        <servlet-name>MainServlet</servlet-name>
-        <servlet-class>my.project.juja.controller.web.MainServlet</servlet-class>
+        <servlet-name>Menu</servlet-name>
+        <servlet-class>my.project.juja.controller.web.MenuServlet</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>MainServlet</servlet-name>
-        <url-pattern>/</url-pattern>
+        <servlet-name>Menu</servlet-name>
+        <url-pattern>/menu.do</url-pattern>
     </servlet-mapping>
     
 </web-app>

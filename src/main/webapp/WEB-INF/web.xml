@@ -4,6 +4,8 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1">
     <display-name>DataBaseManagerEE</display-name>
+
+    <!--####### Servlets #########-->
     <servlet>
         <servlet-name>Menu</servlet-name>
         <servlet-class>my.project.juja.controller.web.MenuServlet</servlet-class>
@@ -36,4 +38,9 @@
         <servlet-name>Help</servlet-name>
         <url-pattern>/help.do</url-pattern>
     </servlet-mapping>
+
+    <!--########## Servlet Listener ############-->
+    <listener>
+        <listener-class>my.project.juja.controller.web.servletContextListener</listener-class>
+    </listener>
 </web-app>

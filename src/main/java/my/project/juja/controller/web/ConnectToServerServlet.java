@@ -17,8 +17,7 @@ public class ConnectToServerServlet extends HttpServlet {
 
     @Override
     public void init() throws ServletException {
-        super.init();
-        service = new ServiceImpl();
+        service = (Service)getServletContext().getAttribute("service");
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

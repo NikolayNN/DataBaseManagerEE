@@ -42,13 +42,17 @@
         <servlet-name>ConnectToDatabase</servlet-name>
         <servlet-class>my.project.juja.controller.web.servlets.ConnectToDatabaseServlet</servlet-class>
     </servlet>
-    <servlet>
-        <servlet-name>TableListServlet</servlet-name>
-        <servlet-class>my.project.juja.controller.web.servlets.TableListServlet</servlet-class>
-    </servlet>
     <servlet-mapping>
         <servlet-name>ConnectToDatabase</servlet-name>
         <url-pattern>/connecttodatabase.do</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>TableList</servlet-name>
+        <servlet-class>my.project.juja.controller.web.servlets.TableListServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>TableList</servlet-name>
+        <url-pattern>/tablelist.do</url-pattern>
     </servlet-mapping>
 
     <!--########## Servlet Listener ############-->

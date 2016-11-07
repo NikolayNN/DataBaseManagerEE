@@ -1,4 +1,4 @@
-package my.project.juja.controller.web;
+package my.project.juja.controller.web.servlets;
 
 import my.project.juja.service.Service;
 import my.project.juja.service.ServiceImpl;

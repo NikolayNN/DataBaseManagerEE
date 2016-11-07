@@ -1,4 +1,4 @@
-package my.project.juja.controller.web;
+package my.project.juja.controller.web.servlets;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;

@@ -8,7 +8,7 @@
     <c:forEach items="${tables}" var="table">
         <p>${table}</p>
     </c:forEach>
-    <form method="post" action="/tabledata.do">
+    <form method="post" action="/showtable.do">
         <input type="text" name="selectedtable" />
     </form>
     ${table}

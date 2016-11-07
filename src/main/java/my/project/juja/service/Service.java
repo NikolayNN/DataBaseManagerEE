@@ -1,5 +1,7 @@
 package my.project.juja.service;
 
+import my.project.juja.model.table.Table;
+
 import java.util.Map;
 import java.util.Set;
 
@@ -14,6 +16,8 @@ public interface Service {
     Set<String> getDataBaseNames();
 
     Set<String> getTableList();
+
+    Table getTableData(String tableName);
 
     Map<String, String> commandList();
 }

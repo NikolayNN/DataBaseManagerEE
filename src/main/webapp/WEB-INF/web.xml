@@ -54,6 +54,14 @@
         <servlet-name>TableList</servlet-name>
         <url-pattern>/tablelist.do</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>TableData</servlet-name>
+        <servlet-class>my.project.juja.controller.web.servlets.TableDataServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>TableData</servlet-name>
+        <url-pattern>/tabledata.do</url-pattern>
+    </servlet-mapping>
 
     <!--########## Servlet Listener ############-->
     <listener>

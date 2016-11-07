@@ -2,6 +2,7 @@ package my.project.juja.service;
 
         import my.project.juja.model.PostgresDataBase;
         import my.project.juja.model.Storeable;
+        import my.project.juja.model.table.Table;
 
         import java.util.Arrays;
         import java.util.HashMap;
@@ -39,6 +40,11 @@ public class ServiceImpl implements Service {
     }
 
     @Override
+    public Table getTableData(String tableName){
+        return store.getTableData(tableName);
+    }
+
+    @Override
     public Map<String, String> commandList() {
         Map<String, String> commands = new HashMap<>();
         commands.put("menu", "menu.do");
@@ -47,6 +53,7 @@ public class ServiceImpl implements Service {
         commands.put("available Databases", "basesnames.do");
         commands.put("connect to Databases", "connecttodatabase.do");
         commands.put("available tables", "tablelist.do");
+        commands.put("Show table", "tabledata.do");
         return commands;
     }
 

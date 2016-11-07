@@ -47,6 +47,29 @@ public class Table {
         return tableName;
     }
 
+    public String toHtml(){
+        StringBuilder table = new StringBuilder();
+        table.append("<table>");
+            table.append("<tr>");
+                for (CellInfo cellInfo : tableHeader) {
+                    table.append("<th>");
+                        table.append(cellInfo.toString());
+                    table.append("</th>");
+                }
+            table.append("</tr>");
+            for (Row row : rows) {
+                table.append("<tr>");
+                for (Cell cell : row.getCells()) {
+                    table.append("<td>");
+                        table.append(cell.getValue());
+                    table.append("</td>");
+                }
+                table.append("</tr>");
+            }
+        table.append("</table>");
+        return table.toString();
+    }
+
     @Override
     public String toString() {
         StringBuilder result = new StringBuilder();

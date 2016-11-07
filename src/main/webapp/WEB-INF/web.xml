@@ -38,6 +38,18 @@
         <servlet-name>Help</servlet-name>
         <url-pattern>/help.do</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>ConnectToDatabase</servlet-name>
+        <servlet-class>my.project.juja.controller.web.servlets.ConnectToDatabaseServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>TableListServlet</servlet-name>
+        <servlet-class>my.project.juja.controller.web.servlets.TableListServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ConnectToDatabase</servlet-name>
+        <url-pattern>/connecttodatabase.do</url-pattern>
+    </servlet-mapping>
 
     <!--########## Servlet Listener ############-->
     <listener>

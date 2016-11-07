@@ -45,6 +45,7 @@ public class ServiceImpl implements Service {
         commands.put("help", "help.do");
         commands.put("connect to server", "connecttoserver.do");
         commands.put("available Databases", "basesnames.do");
+        commands.put("connect to Databases", "connecttodatabase.do");
         return commands;
     }
 

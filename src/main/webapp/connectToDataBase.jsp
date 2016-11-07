@@ -8,7 +8,7 @@
 <c:forEach items="${dbnames}" var="dbname">
     <p>${dbname}</p>
 </c:forEach>
-<form action="connectToDataBase" method="post">
+<form action="connecttodatabase.do" method="post">
     <table>
         <tr>
             <td>Data Base name</td>

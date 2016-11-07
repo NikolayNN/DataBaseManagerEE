@@ -12,5 +12,28 @@
         <servlet-name>Menu</servlet-name>
         <url-pattern>/menu.do</url-pattern>
     </servlet-mapping>
-    
+    <servlet>
+        <servlet-name>BasesNames</servlet-name>
+        <servlet-class>my.project.juja.controller.web.BasesNameServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>BasesNames</servlet-name>
+        <url-pattern>/basesnames.do</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>ConnectToServer</servlet-name>
+        <servlet-class>my.project.juja.controller.web.ConnectToServerServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ConnectToServer</servlet-name>
+        <url-pattern>/connecttoserver.do</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>Help</servlet-name>
+        <servlet-class>my.project.juja.controller.web.HelpServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Help</servlet-name>
+        <url-pattern>/help.do</url-pattern>
+    </servlet-mapping>
 </web-app>

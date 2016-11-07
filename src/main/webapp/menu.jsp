@@ -5,8 +5,8 @@
     <title>SQLCmd</title>
 </head>
 <body>
-<c:forEach items="${items}" var="item">
-    <a href=" ${item}">${item}</a><br>
+<c:forEach var="entry" items="${items}">
+    <a href="${entry.value}">${entry.key}</a><br>
 </c:forEach>
 </body>
 </html>

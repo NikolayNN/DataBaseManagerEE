@@ -1,11 +1,12 @@
 package my.project.juja.service;
 
-import my.project.juja.model.PostgresDataBase;
-import my.project.juja.model.Storeable;
+        import my.project.juja.model.PostgresDataBase;
+        import my.project.juja.model.Storeable;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.Set;
+        import java.util.Arrays;
+        import java.util.HashMap;
+        import java.util.Map;
+        import java.util.Set;
 
 /**
  * Created by Nikol on 10/10/2016.
@@ -38,8 +39,12 @@ public class ServiceImpl implements Service {
     }
 
     @Override
-    public List<String> commandList() {
-        return Arrays.asList("help", "menu", "connectToServer", "connectToDataBase", "tableList");
+    public Map<String, String> commandList() {
+        Map<String, String> commands = new HashMap<>();
+        commands.put("menu", "menu.do");
+        commands.put("help", "help.do");
+        commands.put("connect to server", "connecttoserver.do");
+        return commands;
     }
 
 

@@ -4,7 +4,7 @@
     <title>SQLCmd</title>
 </head>
 <body>
-<form action="connectToServer" method="post">
+<form action="/connecttoserver.do" method="post">
     <table>
         <tr>
             <td>Server URL</td>

@@ -1,6 +1,6 @@
 package my.project.juja.service;
 
-import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -15,5 +15,5 @@ public interface Service {
 
     Set<String> getTableList();
 
-    List<String> commandList();
+    Map<String, String> commandList();
 }

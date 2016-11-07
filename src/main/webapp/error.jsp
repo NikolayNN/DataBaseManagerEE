@@ -12,6 +12,6 @@
 </head>
 <body>
     ${message}<br>
-    <p>Error. you can goto <a href="/">menu</a><p>
+    <p>Error. you can goto <a href="/menu.do">menu</a><p>
 </body>
 </html>

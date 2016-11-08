@@ -46,6 +46,16 @@ public class ServiceImpl implements Service {
     }
 
     @Override
+    public void createDatabase(Storeable store, String dbName){
+        store.createDataBase(dbName);
+    }
+
+    @Override
+    public void dropDatabase(Storeable store, String dbName){
+        store.dropDataBase(dbName);
+    }
+
+    @Override
     public Map<String, String> commandList() {
         Map<String, String> commands = new HashMap<>();
         commands.put("menu", "menu.do");
@@ -55,7 +65,9 @@ public class ServiceImpl implements Service {
         commands.put("connect to Databases", "connecttodatabase.do");
         commands.put("available tables", "tablelist.do");
         commands.put("Show table", "showtable.do");
-        commands.put("Disconnect current DataBase", "disconnectdb.do");
+        commands.put("Disconnect current Database", "disconnectdb.do");
+        commands.put("Create new Database", "createdb.do");
+        commands.put("Drop Database", "dropdb.do");
         return commands;
     }
 

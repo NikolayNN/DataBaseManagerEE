@@ -23,5 +23,9 @@ public interface Service {
 
     Table getTableData(Storeable store, String tableName);
 
+    void createDatabase(Storeable store, String dbName);
+
+    void dropDatabase(Storeable store, String dbName);
+
     Map<String, String> commandList();
 }

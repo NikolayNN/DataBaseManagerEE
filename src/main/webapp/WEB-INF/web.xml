@@ -70,6 +70,23 @@
         <servlet-name>DisconnectDataBase</servlet-name>
         <url-pattern>/disconnectdb.do</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>CreateDatabase</servlet-name>
+        <servlet-class>my.project.juja.controller.web.servlets.CreateDatabaseServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CreateDatabase</servlet-name>
+        <url-pattern>/createdb.do</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>DropDatabase</servlet-name>
+        <servlet-class>my.project.juja.controller.web.servlets.DropDatabaseServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DropDatabase</servlet-name>
+        <url-pattern>/dropdb.do</url-pattern>
+    </servlet-mapping>
+    
 
     <!--########## Servlet Listener ############-->
 

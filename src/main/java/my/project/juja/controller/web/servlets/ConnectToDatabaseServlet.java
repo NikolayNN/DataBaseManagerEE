@@ -1,6 +1,8 @@
 package my.project.juja.controller.web.servlets;
 
+import my.project.juja.model.Storeable;
 import my.project.juja.service.Service;
+import my.project.juja.service.ServiceImpl;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -16,13 +18,14 @@ public class ConnectToDatabaseServlet extends HttpServlet {
 
     @Override
     public void init() throws ServletException {
-        service = (Service)getServletContext().getAttribute("service");
+        service = new ServiceImpl();
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String dbName = request.getParameter("dbname");
         try {
-            service.connectToDataBase(dbName);
+            Storeable store = (Storeable) request.getSession().getAttribute("store");
+            service.connectToDataBase(store, dbName);
             response.sendRedirect("menu.do");
         } catch (RuntimeException e) {
             request.setAttribute("message", e.getMessage());
@@ -32,7 +35,8 @@ public class ConnectToDatabaseServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.setAttribute("dbnames", service.getDataBaseNames());
-        request.getRequestDispatcher("connectToDataBase.jsp").forward(request,response);
+        Storeable store = (Storeable) request.getSession().getAttribute("store");
+        request.setAttribute("dbnames", service.getDataBaseNames(store));
+        request.getRequestDispatcher("connectToDataBase.jsp").forward(request, response);
     }
 }

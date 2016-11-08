@@ -1,5 +1,6 @@
 package my.project.juja.controller.web.servlets;
 
+import my.project.juja.model.Storeable;
 import my.project.juja.service.Service;
 import my.project.juja.service.ServiceImpl;
 
@@ -13,11 +14,11 @@ import java.io.IOException;
  * Created by Nikol on 11/2/2016.
  */
 public class ConnectToServerServlet extends HttpServlet {
-    private Service service;
+    Service service;
 
     @Override
     public void init() throws ServletException {
-        service = (Service)getServletContext().getAttribute("service");
+        service = new ServiceImpl();
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -25,7 +26,8 @@ public class ConnectToServerServlet extends HttpServlet {
         String userName = request.getParameter("username");
         String password = request.getParameter("password");
         try {
-            service.connectToServer(databaseName, userName, password);
+            Storeable store = service.connectToServer(databaseName, userName, password);
+            request.getSession().setAttribute("store", store);
             response.sendRedirect(response.encodeRedirectURL("menu.do"));
         } catch (Exception e) {
             request.setAttribute("message", e.getMessage());

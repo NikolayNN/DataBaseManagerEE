@@ -1,5 +1,6 @@
 package my.project.juja.service;
 
+import my.project.juja.model.Storeable;
 import my.project.juja.model.table.Table;
 
 import java.util.Map;
@@ -9,15 +10,16 @@ import java.util.Set;
  * Created by Nikol on 10/10/2016.
  */
 public interface Service {
-    void connectToServer(String serverURL, String userName, String password);
+    Storeable connectToServer(String serverURL, String userName, String password);
 
-    void connectToDataBase(String dataBaseName);
 
-    Set<String> getDataBaseNames();
+    void connectToDataBase(Storeable store, String dataBaseName);
 
-    Set<String> getTableList();
+    Set<String> getDataBaseNames(Storeable store);
 
-    Table getTableData(String tableName);
+    Set<String> getTableList(Storeable store);
+
+    Table getTableData(Storeable store, String tableName);
 
     Map<String, String> commandList();
 }

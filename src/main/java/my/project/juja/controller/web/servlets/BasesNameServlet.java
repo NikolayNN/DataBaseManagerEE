@@ -1,5 +1,6 @@
 package my.project.juja.controller.web.servlets;
 
+import my.project.juja.model.Storeable;
 import my.project.juja.service.Service;
 import my.project.juja.service.ServiceImpl;
 
@@ -19,7 +20,7 @@ public class BasesNameServlet extends HttpServlet {
 
     @Override
     public void init() throws ServletException {
-        service = (Service)getServletContext().getAttribute("service");
+        service = new ServiceImpl();
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -27,7 +28,8 @@ public class BasesNameServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.setAttribute("databases", service.getDataBaseNames());
+        Storeable store = (Storeable) request.getSession().getAttribute("store");
+        request.setAttribute("databases", service.getDataBaseNames(store));
         request.getRequestDispatcher("dataBases.jsp").forward(request,response);
     }
 }

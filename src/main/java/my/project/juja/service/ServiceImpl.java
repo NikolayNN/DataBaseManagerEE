@@ -4,7 +4,6 @@ package my.project.juja.service;
         import my.project.juja.model.Storeable;
         import my.project.juja.model.table.Table;
 
-        import java.util.Arrays;
         import java.util.HashMap;
         import java.util.Map;
         import java.util.Set;
@@ -13,34 +12,31 @@ package my.project.juja.service;
  * Created by Nikol on 10/10/2016.
  */
 public class ServiceImpl implements Service {
-    private Storeable store;
-
-    public ServiceImpl() {
-        store = new PostgresDataBase();
-    }
 
     @Override
-    public void connectToServer(String serverURL, String userName, String password) {
+    public Storeable connectToServer(String serverURL, String userName, String password) {
+        Storeable store = new PostgresDataBase();
         store.connectToServer(serverURL, userName, password);
+        return store;
     }
 
     @Override
-    public void connectToDataBase(String dataBaseName) {
+    public void connectToDataBase(Storeable store, String dataBaseName) {
         store.connectToDataBase(dataBaseName);
     }
 
     @Override
-    public Set<String> getDataBaseNames() {
+    public Set<String> getDataBaseNames(Storeable store) {
         return store.getDataBasesNames();
     }
 
     @Override
-    public Set<String> getTableList() {
+    public Set<String> getTableList(Storeable store) {
         return store.getTableList();
     }
 
     @Override
-    public Table getTableData(String tableName){
+    public Table getTableData(Storeable store, String tableName){
         return store.getTableData(tableName);
     }
 

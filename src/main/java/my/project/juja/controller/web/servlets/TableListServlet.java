@@ -1,6 +1,8 @@
 package my.project.juja.controller.web.servlets;
 
+import my.project.juja.model.Storeable;
 import my.project.juja.service.Service;
+import my.project.juja.service.ServiceImpl;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -16,11 +18,12 @@ public class TableListServlet extends HttpServlet {
 
     @Override
     public void init() throws ServletException {
-        service = (Service)getServletContext().getAttribute("service");
+        service = new ServiceImpl();
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.setAttribute("tables", service.getTableList());
+        Storeable store = (Storeable) request.getSession().getAttribute("store");
+        request.setAttribute("tables", service.getTableList(store));
         request.getRequestDispatcher("tableList.jsp").forward(request, response);
     }
 }

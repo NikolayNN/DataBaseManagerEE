@@ -1,7 +1,9 @@
 package my.project.juja.controller.web.servlets;
 
+import my.project.juja.model.Storeable;
 import my.project.juja.model.table.Table;
 import my.project.juja.service.Service;
+import my.project.juja.service.ServiceImpl;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -17,18 +19,20 @@ public class ShowTableServlet extends HttpServlet {
 
     @Override
     public void init() throws ServletException {
-        service = (Service)getServletContext().getAttribute("service");
+        service = new ServiceImpl();
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.setAttribute("tables", service.getTableList());
-        Table tableToShow = service.getTableData(request.getParameter("selectedtable"));
+        Storeable store = (Storeable) request.getSession().getAttribute("store");
+        request.setAttribute("tables", service.getTableList(store));
+        Table tableToShow = service.getTableData(store, request.getParameter("selectedtable"));
         request.setAttribute("table", tableToShow.toHtml());
         request.getRequestDispatcher("showTable.jsp").forward(request, response);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.setAttribute("tables", service.getTableList());
+        Storeable store = (Storeable) request.getSession().getAttribute("store");
+        request.setAttribute("tables", service.getTableList(store));
         request.getRequestDispatcher("showTable.jsp").forward(request, response);
     }
 }

@@ -64,7 +64,5 @@
     </servlet-mapping>
 
     <!--########## Servlet Listener ############-->
-    <listener>
-        <listener-class>my.project.juja.controller.web.listeners.servletContextListener</listener-class>
-    </listener>
+
 </web-app>

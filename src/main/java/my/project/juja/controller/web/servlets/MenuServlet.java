@@ -16,8 +16,14 @@ import java.io.PrintWriter;
  */
 
 public class MenuServlet extends HttpServlet {
+    private Service service;
+
+    @Override
+    public void init() throws ServletException {
+        service = new ServiceImpl();
+    }
+
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        Service service = new ServiceImpl();
         request.setAttribute("items", service.commandList());
         request.getRequestDispatcher("menu.jsp").forward(request, response);
     }

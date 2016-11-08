@@ -1,4 +1,4 @@
-package my.project.juja.controller.web.servlets;
+package my.project.juja.controller.web.servlets.database;
 
 import my.project.juja.model.Storeable;
 import my.project.juja.service.Service;

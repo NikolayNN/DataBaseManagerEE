@@ -8,7 +8,7 @@
     <!--####### Servlets #########-->
     <servlet>
         <servlet-name>Menu</servlet-name>
-        <servlet-class>my.project.juja.controller.web.servlets.MenuServlet</servlet-class>
+        <servlet-class>my.project.juja.controller.web.servlets.program.MenuServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>Menu</servlet-name>
@@ -16,7 +16,7 @@
     </servlet-mapping>
     <servlet>
         <servlet-name>BasesNames</servlet-name>
-        <servlet-class>my.project.juja.controller.web.servlets.BasesNameServlet</servlet-class>
+        <servlet-class>my.project.juja.controller.web.servlets.database.BasesNameServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>BasesNames</servlet-name>
@@ -24,7 +24,7 @@
     </servlet-mapping>
     <servlet>
         <servlet-name>ConnectToServer</servlet-name>
-        <servlet-class>my.project.juja.controller.web.servlets.ConnectToServerServlet</servlet-class>
+        <servlet-class>my.project.juja.controller.web.servlets.database.ConnectToServerServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>ConnectToServer</servlet-name>
@@ -32,7 +32,7 @@
     </servlet-mapping>
     <servlet>
         <servlet-name>Help</servlet-name>
-        <servlet-class>my.project.juja.controller.web.servlets.HelpServlet</servlet-class>
+        <servlet-class>my.project.juja.controller.web.servlets.program.HelpServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>Help</servlet-name>
@@ -40,7 +40,7 @@
     </servlet-mapping>
     <servlet>
         <servlet-name>ConnectToDatabase</servlet-name>
-        <servlet-class>my.project.juja.controller.web.servlets.ConnectToDatabaseServlet</servlet-class>
+        <servlet-class>my.project.juja.controller.web.servlets.database.ConnectToDatabaseServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>ConnectToDatabase</servlet-name>
@@ -48,7 +48,7 @@
     </servlet-mapping>
     <servlet>
         <servlet-name>TableList</servlet-name>
-        <servlet-class>my.project.juja.controller.web.servlets.TableListServlet</servlet-class>
+        <servlet-class>my.project.juja.controller.web.servlets.table.TableListServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>TableList</servlet-name>
@@ -56,7 +56,7 @@
     </servlet-mapping>
     <servlet>
         <servlet-name>ShowTable</servlet-name>
-        <servlet-class>my.project.juja.controller.web.servlets.ShowTableServlet</servlet-class>
+        <servlet-class>my.project.juja.controller.web.servlets.table.ShowTableServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>ShowTable</servlet-name>
@@ -64,7 +64,7 @@
     </servlet-mapping>
     <servlet>
         <servlet-name>DisconnectDataBase</servlet-name>
-        <servlet-class>my.project.juja.controller.web.servlets.DisconnectDataBaseServlet</servlet-class>
+        <servlet-class>my.project.juja.controller.web.servlets.database.DisconnectDataBaseServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>DisconnectDataBase</servlet-name>
@@ -72,7 +72,7 @@
     </servlet-mapping>
     <servlet>
         <servlet-name>CreateDatabase</servlet-name>
-        <servlet-class>my.project.juja.controller.web.servlets.CreateDatabaseServlet</servlet-class>
+        <servlet-class>my.project.juja.controller.web.servlets.database.CreateDatabaseServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>CreateDatabase</servlet-name>
@@ -80,7 +80,7 @@
     </servlet-mapping>
     <servlet>
         <servlet-name>DropDatabase</servlet-name>
-        <servlet-class>my.project.juja.controller.web.servlets.DropDatabaseServlet</servlet-class>
+        <servlet-class>my.project.juja.controller.web.servlets.database.DropDatabaseServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>DropDatabase</servlet-name>

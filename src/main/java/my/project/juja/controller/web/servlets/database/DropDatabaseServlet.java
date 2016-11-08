@@ -24,9 +24,14 @@ public class DropDatabaseServlet extends HttpServlet {
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        Storeable store = (Storeable) request.getSession().getAttribute("store");
-        service.dropDatabase(store, request.getParameter("dbname"));
-        response.sendRedirect("/menu.do");
+        try {
+            Storeable store = (Storeable) request.getSession().getAttribute("store");
+            service.dropDatabase(store, request.getParameter("dbname"));
+            response.sendRedirect("/menu.do");
+        }catch (RuntimeException ex){
+            request.setAttribute("message", ex.getMessage());
+            request.getRequestDispatcher("error.jsp").forward(request, response);
+        }
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

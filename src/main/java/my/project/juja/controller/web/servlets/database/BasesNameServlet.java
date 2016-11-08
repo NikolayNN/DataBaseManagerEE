@@ -28,8 +28,13 @@ public class BasesNameServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        Storeable store = (Storeable) request.getSession().getAttribute("store");
-        request.setAttribute("databases", service.getDataBaseNames(store));
-        request.getRequestDispatcher("dataBases.jsp").forward(request,response);
+        try {
+            Storeable store = (Storeable) request.getSession().getAttribute("store");
+            request.setAttribute("databases", service.getDataBaseNames(store));
+            request.getRequestDispatcher("dataBases.jsp").forward(request, response);
+        }catch (RuntimeException ex){
+            request.setAttribute("message", ex.getMessage());
+            request.getRequestDispatcher("error.jsp").forward(request, response);
+        }
     }
 }

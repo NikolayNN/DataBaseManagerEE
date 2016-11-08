@@ -22,9 +22,14 @@ public class DisconnectDataBaseServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        Storeable store = (Storeable) request.getSession().getAttribute("store");
-        service.disconnectDataBase(store);
-        request.getSession().setAttribute("dbName", "");
-        request.getRequestDispatcher("menu.do").forward(request, response);
+        try {
+            Storeable store = (Storeable) request.getSession().getAttribute("store");
+            service.disconnectDataBase(store);
+            request.getSession().setAttribute("dbName", "");
+            request.getRequestDispatcher("menu.do").forward(request, response);
+        }catch (RuntimeException ex){
+            request.setAttribute("message", ex.getMessage());
+            request.getRequestDispatcher("error.jsp").forward(request, response);
+        }
     }
 }

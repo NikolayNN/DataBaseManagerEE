@@ -26,6 +26,7 @@ public class ConnectToDatabaseServlet extends HttpServlet {
         try {
             Storeable store = (Storeable) request.getSession().getAttribute("store");
             service.connectToDataBase(store, dbName);
+            request.getSession().setAttribute("dbName", dbName);
             response.sendRedirect("menu.do");
         } catch (RuntimeException e) {
             request.setAttribute("message", e.getMessage());

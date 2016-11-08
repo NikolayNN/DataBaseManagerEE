@@ -5,6 +5,8 @@
     <title>SQLCmd</title>
 </head>
 <body>
+<h3>server url - ${serverUrl}</h3>
+<h3>data base - ${dbName}</h3>
 <c:forEach var="entry" items="${items}">
     <a href="${entry.value}">${entry.key}</a><br>
 </c:forEach>

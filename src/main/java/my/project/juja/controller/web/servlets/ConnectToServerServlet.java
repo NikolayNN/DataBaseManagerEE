@@ -22,12 +22,13 @@ public class ConnectToServerServlet extends HttpServlet {
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String databaseName = request.getParameter("serverurl");
+        String serverUrl = request.getParameter("serverurl");
         String userName = request.getParameter("username");
         String password = request.getParameter("password");
         try {
-            Storeable store = service.connectToServer(databaseName, userName, password);
+            Storeable store = service.connectToServer(serverUrl, userName, password);
             request.getSession().setAttribute("store", store);
+            request.getSession().setAttribute("serverUrl", serverUrl);
             response.sendRedirect(response.encodeRedirectURL("menu.do"));
         } catch (Exception e) {
             request.setAttribute("message", e.getMessage());

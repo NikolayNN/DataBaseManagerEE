@@ -15,6 +15,8 @@ public interface Service {
 
     void connectToDataBase(Storeable store, String dataBaseName);
 
+    void disconnectDataBase(Storeable store);
+
     Set<String> getDataBaseNames(Storeable store);
 
     Set<String> getTableList(Storeable store);

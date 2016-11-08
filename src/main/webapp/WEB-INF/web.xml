@@ -62,6 +62,14 @@
         <servlet-name>ShowTable</servlet-name>
         <url-pattern>/showtable.do</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>DisconnectDataBase</servlet-name>
+        <servlet-class>my.project.juja.controller.web.servlets.DisconnectDataBaseServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DisconnectDataBase</servlet-name>
+        <url-pattern>/disconnectdb.do</url-pattern>
+    </servlet-mapping>
 
     <!--########## Servlet Listener ############-->
 

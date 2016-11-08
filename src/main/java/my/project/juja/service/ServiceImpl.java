@@ -26,6 +26,11 @@ public class ServiceImpl implements Service {
     }
 
     @Override
+    public void disconnectDataBase(Storeable store){
+        store.disconectDataBase();
+    }
+
+    @Override
     public Set<String> getDataBaseNames(Storeable store) {
         return store.getDataBasesNames();
     }
@@ -50,6 +55,7 @@ public class ServiceImpl implements Service {
         commands.put("connect to Databases", "connecttodatabase.do");
         commands.put("available tables", "tablelist.do");
         commands.put("Show table", "showtable.do");
+        commands.put("Disconnect current DataBase", "disconnectdb.do");
         return commands;
     }
 

@@ -24,7 +24,7 @@ public class UpdateRecord extends Command {
         checkCountParameters(parametrs, COUNT_PARAMETERS);
         String tableName = parametrs[0];
         checkTableName(tableName);
-        String where = createWhere(view, store.getColumnHeaders(tableName));
+        String where = createWhere(view, store.getHeaderRow(tableName));
         Table table = getTableToUpdate(tableName, where);
         view.writeln(table.toString());
         table.addRow(new Row(table.getHeaderRow()));

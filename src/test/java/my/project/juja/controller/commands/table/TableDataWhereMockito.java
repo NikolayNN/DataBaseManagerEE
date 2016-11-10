@@ -47,7 +47,7 @@ public class TableDataWhereMockito {
         Mockito.when(store.getConnectToServer()).thenReturn(connection);
         Mockito.when(store.getConnectToDataBase()).thenReturn(connection);
         Mockito.when(store.getTableList()).thenReturn(availableTables);
-        Mockito.when(store.getColumnHeaders(testTable.getTableName())).thenReturn(testTable.getHeaderRow());
+        Mockito.when(store.getHeaderRow(testTable.getTableName())).thenReturn(testTable.getHeaderRow());
         Mockito.when(store.getTableData(testTable.getTableName(), where)).thenReturn(testTable);
         Mockito.when(view.read()).thenReturn("n")
                 .thenReturn(where);

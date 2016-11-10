@@ -1,6 +1,7 @@
 package my.project.juja.model;
 
 import my.project.juja.model.table.HeaderCell;
+import my.project.juja.model.table.HeaderRow;
 import my.project.juja.model.table.Table;
 
 import java.sql.Connection;
@@ -37,7 +38,7 @@ public interface Storeable {
 
     void updateRecord(String where, Table table);
 
-    List<HeaderCell> getColumnHeaders(String tableName);
+    HeaderRow getHeaderRow(String tableName);
 
     Set<String> getDataBasesNames();
 

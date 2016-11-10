@@ -27,7 +27,7 @@ public class GetTableHeadersServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Storeable store = (Storeable) request.getSession().getAttribute("store");
         String tableName = request.getParameter("tableName");
-        List<HeaderCell> columnHeaders = store.getColumnHeaders(tableName);
+        List<HeaderCell> columnHeaders = store.getHeaderRow(tableName);
         request.setAttribute("columnHeaders", columnHeaders);
         request.setAttribute("columnNames", getColumnNames(columnHeaders));
         request.setAttribute("inputedTableName", tableName);

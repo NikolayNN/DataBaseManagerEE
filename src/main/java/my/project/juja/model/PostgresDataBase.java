@@ -182,7 +182,7 @@ public class PostgresDataBase implements Storeable {
     public Table getTableData(String tableName) {
         checkConnectionToServer();
         checkConnectionToDataBase();
-        Table table = new Table(tableName, new HeaderRow(getColumnHeaders(tableName)));
+        Table table = new Table(tableName, getHeaderRow(tableName));
         String query = "SELECT * FROM " + tableName;
         try (Statement stmt = connectionDataBase.createStatement();
              ResultSet rs = stmt.executeQuery(query)) {
@@ -208,7 +208,7 @@ public class PostgresDataBase implements Storeable {
     public Table getTableData(String tableName, String where) {
         checkConnectionToServer();
         checkConnectionToDataBase();
-        Table table = new Table(tableName, new HeaderRow(getColumnHeaders(tableName)));
+        Table table = new Table(tableName, getHeaderRow(tableName));
         String query = "SELECT * FROM " + tableName + " WHERE " + where;
         try (Statement stmt = connectionDataBase.createStatement();
             ResultSet rs = stmt.executeQuery(query)) {
@@ -255,7 +255,7 @@ public class PostgresDataBase implements Storeable {
     }
 
     @Override
-    public List<HeaderCell> getColumnHeaders(String tableName) {
+    public HeaderRow getHeaderRow(String tableName) {
         checkConnectionToServer();
         checkConnectionToDataBase();
         List<HeaderCell> headerCells = new ArrayList<>();
@@ -275,7 +275,7 @@ public class PostgresDataBase implements Storeable {
         } catch (SQLException ex) {
             throw new RuntimeException(ERROR_WRONG_TABLENAME);
         }
-        return headerCells;
+        return new HeaderRow(headerCells);
     }
 
     @Override

@@ -56,11 +56,11 @@ public class ServiceImpl implements Service {
 
     @Override
     public List<HeaderCell> getColumnHeaders(Storeable store, String tableName){
-        return store.getColumnHeaders(tableName);
+        return store.getHeaderRow(tableName);
     }
 
     public void addRecord(Storeable store, Table table){
-
+        s
 
         store.addRecord();
     }

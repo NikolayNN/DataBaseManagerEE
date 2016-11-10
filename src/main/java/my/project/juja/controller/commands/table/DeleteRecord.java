@@ -23,7 +23,7 @@ public class DeleteRecord extends Command {
         String tableName = parametrs[0];
         checkTableName(tableName);
         while (true) {
-            String where = createWhere(view, store.getColumnHeaders(tableName));
+            String where = createWhere(view, store.getHeaderRow(tableName));
             Table table = store.getTableData(tableName, where);
             view.writeln(table.toString());
             confirmCommand("Are you sure delete this records? (Y/N)");

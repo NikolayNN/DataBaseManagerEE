@@ -51,7 +51,7 @@ public class UpdateRecordMockito {
         Mockito.when(view.read()).thenReturn("n")
                 .thenReturn(where);
         Mockito.when(store.getTableList()).thenReturn(availableTables);
-        Mockito.when(store.getColumnHeaders(testTable.getTableName())).thenReturn(testTable.getHeaderRow());
+        Mockito.when(store.getHeaderRow(testTable.getTableName())).thenReturn(testTable.getHeaderRow());
         Mockito.when(store.getTableData(testTable.getTableName(), where)).thenReturn(testTable);
 
         //when

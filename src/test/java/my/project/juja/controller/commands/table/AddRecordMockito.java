@@ -47,7 +47,7 @@ public class AddRecordMockito {
         Mockito.when(store.getConnectToDataBase()).thenReturn(connection);
         Mockito.when(store.getConnectToServer()).thenReturn(connection);
         Mockito.when(store.getTableList()).thenReturn(availableTables);
-        Mockito.when(store.getColumnHeaders(table.getTableName())).thenReturn(testTable.getHeaderRow());
+        Mockito.when(store.getHeaderRow(table.getTableName())).thenReturn(testTable.getHeaderRow());
         Mockito.when(view.read()).thenReturn("123")
                 .thenReturn("TestFName")
                 .thenReturn("TestLName")

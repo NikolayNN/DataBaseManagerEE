@@ -23,7 +23,7 @@ public class AddRecord extends Command {
         checkCountParameters(parametrs, EXPECTED_COUNT_PARAMETERS);
         String tableName = parametrs[0];
         checkTableName(tableName);
-        Table table = new Table(tableName, store.getColumnHeaders(tableName));
+        Table table = new Table(tableName, store.getHeaderRow(tableName));
         Row row = new Row(table.getHeaderRow());
         while (true) {
             fillRow(table, row);
@@ -33,7 +33,7 @@ public class AddRecord extends Command {
                 break;
             } catch (RuntimeException ex) {
                 view.writeln(ex.getMessage());
-                table = new Table(tableName, store.getColumnHeaders(tableName));
+                table = new Table(tableName, store.getHeaderRow(tableName));
                 row = new Row(table.getHeaderRow());
             }
         }

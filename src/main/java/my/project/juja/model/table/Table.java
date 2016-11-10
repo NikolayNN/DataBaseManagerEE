@@ -7,10 +7,10 @@ import java.util.List;
  * Created by Nikol on 9/7/2016.
  */
 public class Table {
-    private String tableName;
-    private HeaderRow headerRow;
+    private String tableName; // TODO final
+    private HeaderRow headerRow; // TODO final
     private List<Row> rows;
-    private int columnCount;
+    private int columnCount;// TODO final
 
     public Table(String tableName, HeaderRow headerRow) {
         this.tableName = tableName;

@@ -59,6 +59,7 @@ public class ServiceImpl implements Service {
         return store.getHeaderRow(tableName);
     }
 
+    @Override
     public void addRecord(Storeable store, Table table){
         store.addRecord(table);
     }

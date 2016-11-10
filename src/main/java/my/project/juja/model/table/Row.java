@@ -23,6 +23,10 @@ public class Row {
         return cells;
     }
 
+    public String getColumnName(Cell cell){
+        return cell.getHeaderCell().getColumnName();
+    }
+
     public List<Cell> getCellsNotNull() {
         List<Cell> result = new ArrayList<>();
         for (Cell cell : cells) {

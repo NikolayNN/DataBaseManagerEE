@@ -30,5 +30,7 @@ public interface Service {
 
     HeaderRow getColumnHeaders(Storeable store, String tableName);
 
+    void addRecord(Storeable store, Table table);
+
     Map<String, String> commandList();
 }

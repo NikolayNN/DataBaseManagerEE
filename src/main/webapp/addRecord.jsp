@@ -16,12 +16,12 @@
                 <th>${columnHeader}</th>
             </c:forEach>
         </tr>
-        <form name="addRecordForm" method="get" action="/addrecord.do">
-            <input type="hidden" name="tableName" value="${inputedTableName}">
+        <form name="addRecordForm" method="post" action="/addrecord.do">
+            <input type="hidden" name="inputedTableName" value="${inputedTableName}">
             <tr>
                 <c:forEach items="${columnNames}" var="columnName">
                     <td>
-                        <input name=column${columnName} type="text"/>
+                        <input name=${columnName} type="text"/>
                     </td>
                 </c:forEach>
             </tr>

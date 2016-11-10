@@ -8,5 +8,20 @@ import java.util.List;
 public class HeaderRow {
     private List<HeaderCell> headerCells;
 
+    public HeaderRow(List<HeaderCell> headerCells) {
+        this.headerCells = headerCells;
+    }
+
+    public List<HeaderCell> getHeaderCells() {
+        return headerCells;
+    }
+
+    public int size(){
+        return headerCells.size();
+    }
+
+    public HeaderCell getHeaderCell(int index){
+        return headerCells.get(index);
+    }
 
 }

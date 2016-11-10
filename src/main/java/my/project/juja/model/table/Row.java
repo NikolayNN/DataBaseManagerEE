@@ -13,8 +13,8 @@ public class Row {
         cells = new ArrayList<>();
     }
 
-    public Row(List<HeaderCell> cellsInfo) {
-        for (HeaderCell headerCell : cellsInfo) {
+    public Row(HeaderRow headerRow) {
+        for (HeaderCell headerCell : headerRow.getHeaderCells()) {
             cells.add(new Cell(headerCell));
         }
     }

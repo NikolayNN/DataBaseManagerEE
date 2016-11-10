@@ -8,14 +8,14 @@ import java.util.List;
  */
 public class Table {
     private String tableName;
-    private List<HeaderCell> tableHeader;
+    private HeaderRow headerRow;
     private List<Row> rows;
     private int columnCount;
 
-    public Table(String tableName, List<HeaderCell> tableHeader) {
+    public Table(String tableName, HeaderRow headerRow) {
         this.tableName = tableName;
-        this.tableHeader = tableHeader;
-        this.columnCount = tableHeader.size();
+        this.headerRow = headerRow;
+        this.columnCount = headerRow.size();
         rows = new ArrayList<>();
     }
 
@@ -27,12 +27,12 @@ public class Table {
         return columnCount;
     }
 
-    public List<HeaderCell> getTableHeader() {
-        return tableHeader;
+    public HeaderRow getHeaderRow() {
+        return headerRow;
     }
 
-    public HeaderCell getCellInfos(int columnIndex) {
-        return tableHeader.get(columnIndex);
+    public HeaderCell getCellInfo(int columnIndex) {
+        return headerRow.getHeaderCell(columnIndex);
     }
 
     public List<Row> getRows() {
@@ -51,7 +51,7 @@ public class Table {
         StringBuilder table = new StringBuilder();
         table.append("<table>");
             table.append("<tr>");
-                for (HeaderCell headerCell : tableHeader) {
+                for (HeaderCell headerCell : headerRow.getHeaderCells()) {
                     table.append("<th>");
                         table.append(headerCell.toString());
                     table.append("</th>");
@@ -106,7 +106,7 @@ public class Table {
     private String printColumnNames(int[] maxLength) {
         StringBuilder result = new StringBuilder();
         for (int i = 0; i < columnCount; i++) {
-            String columnName = getCellInfos(i).getColumnName();
+            String columnName = getCellInfo(i).getColumnName();
             result.append(columnName + addSymbol(columnName, maxLength[i], " "));
             result.append(" | ");
         }
@@ -122,7 +122,7 @@ public class Table {
     }
 
     private int getMaxLength(int columnIndex) {
-        int max = getCellInfos(columnIndex).getColumnName().length();
+        int max = getCellInfo(columnIndex).getColumnName().length();
         for (Row row : rows) {
             int currentLength = row.getCell(columnIndex).value.length();
             if (currentLength > max) {

@@ -1,9 +1,6 @@
 package my.project.juja.model;
 
-import my.project.juja.model.table.Cell;
-import my.project.juja.model.table.HeaderCell;
-import my.project.juja.model.table.Row;
-import my.project.juja.model.table.Table;
+import my.project.juja.model.table.*;
 import my.project.juja.utils.JujaUtils;
 
 import java.sql.*;
@@ -185,13 +182,13 @@ public class PostgresDataBase implements Storeable {
     public Table getTableData(String tableName) {
         checkConnectionToServer();
         checkConnectionToDataBase();
-        Table table = new Table(tableName, getColumnHeaders(tableName));
+        Table table = new Table(tableName, new HeaderRow(getColumnHeaders(tableName)));
         String query = "SELECT * FROM " + tableName;
         try (Statement stmt = connectionDataBase.createStatement();
              ResultSet rs = stmt.executeQuery(query)) {
             ResultSetMetaData rsmd = rs.getMetaData();
             while (rs.next()) {
-                Row row = new Row(table.getTableHeader());
+                Row row = new Row(table.getHeaderRow());
                 for (int i = 1; i <= rsmd.getColumnCount(); i++) {
                     if (rs.getString(i) != null) {
                         row.getCell(i - 1).setValue(rs.getString(i).trim(), false);
@@ -211,13 +208,13 @@ public class PostgresDataBase implements Storeable {
     public Table getTableData(String tableName, String where) {
         checkConnectionToServer();
         checkConnectionToDataBase();
-        Table table = new Table(tableName, getColumnHeaders(tableName));
+        Table table = new Table(tableName, new HeaderRow(getColumnHeaders(tableName)));
         String query = "SELECT * FROM " + tableName + " WHERE " + where;
         try (Statement stmt = connectionDataBase.createStatement();
             ResultSet rs = stmt.executeQuery(query)) {
             ResultSetMetaData rsmd = rs.getMetaData();
             while (rs.next()) {
-                Row row = new Row(table.getTableHeader());
+                Row row = new Row(table.getHeaderRow());
                 for (int i = 1; i <= rsmd.getColumnCount(); i++) {
                     if (rs.getString(i) != null) {
                         row.getCell(i - 1).setValue(rs.getString(i).trim(), false);

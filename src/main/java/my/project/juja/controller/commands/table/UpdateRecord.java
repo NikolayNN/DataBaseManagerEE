@@ -27,7 +27,7 @@ public class UpdateRecord extends Command {
         String where = createWhere(view, store.getColumnHeaders(tableName));
         Table table = getTableToUpdate(tableName, where);
         view.writeln(table.toString());
-        table.addRow(new Row(table.getTableHeader()));
+        table.addRow(new Row(table.getHeaderRow()));
         while (true) {
             try {
                 inputValuesToUpdate(table);

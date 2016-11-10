@@ -64,7 +64,7 @@ public class TestDataBase {
 
         }
         table = createTable();
-        store.createTable(tableName, table.getTableHeader());
+        store.createTable(tableName, table.getHeaderRow());
         store.addRecord(table);
 
         store.disconectDataBase();

@@ -41,13 +41,13 @@ public class TableDataWhereMockito {
     @Test
     public void testNormal(){
         //given
-        String where = testTable.getCellInfos(0).getColumnName() + "=" + "value";
+        String where = testTable.getCellInfo(0).getColumnName() + "=" + "value";
         String commandString = Command.TABLE_DATA + Command.SEPARATOR_TO_STRING + testTable.getTableName();
         command.setup(commandString);
         Mockito.when(store.getConnectToServer()).thenReturn(connection);
         Mockito.when(store.getConnectToDataBase()).thenReturn(connection);
         Mockito.when(store.getTableList()).thenReturn(availableTables);
-        Mockito.when(store.getColumnHeaders(testTable.getTableName())).thenReturn(testTable.getTableHeader());
+        Mockito.when(store.getColumnHeaders(testTable.getTableName())).thenReturn(testTable.getHeaderRow());
         Mockito.when(store.getTableData(testTable.getTableName(), where)).thenReturn(testTable);
         Mockito.when(view.read()).thenReturn("n")
                 .thenReturn(where);

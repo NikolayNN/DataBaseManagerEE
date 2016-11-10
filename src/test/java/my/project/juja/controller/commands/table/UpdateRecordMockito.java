@@ -43,7 +43,7 @@ public class UpdateRecordMockito {
     @Test
     public void testNormal() {
         //given
-        String where = testTable.getCellInfos(0).getColumnName() + "=" + "value";
+        String where = testTable.getCellInfo(0).getColumnName() + "=" + "value";
         String commandString = Command.UPDATE_TABLE + Command.SEPARATOR + testTable.getTableName();
         spyCommand.setup(commandString);
         Mockito.when(store.getConnectToServer()).thenReturn(connection);
@@ -51,7 +51,7 @@ public class UpdateRecordMockito {
         Mockito.when(view.read()).thenReturn("n")
                 .thenReturn(where);
         Mockito.when(store.getTableList()).thenReturn(availableTables);
-        Mockito.when(store.getColumnHeaders(testTable.getTableName())).thenReturn(testTable.getTableHeader());
+        Mockito.when(store.getColumnHeaders(testTable.getTableName())).thenReturn(testTable.getHeaderRow());
         Mockito.when(store.getTableData(testTable.getTableName(), where)).thenReturn(testTable);
 
         //when
@@ -67,7 +67,7 @@ public class UpdateRecordMockito {
         String commandString = Command.UPDATE_TABLE + Command.SEPARATOR + testTable.getTableName();
         spyCommand.setup(commandString);
         Mockito.when(store.getConnectToDataBase()).thenReturn(connection);
-        Mockito.when(spyCommand.createWhere(view, testTable.getTableHeader())).thenReturn(where);
+        Mockito.when(spyCommand.createWhere(view, testTable.getHeaderRow())).thenReturn(where);
         //when
         spyCommand.perform();
     }

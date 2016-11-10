@@ -24,7 +24,7 @@ public class AddRecord extends Command {
         String tableName = parametrs[0];
         checkTableName(tableName);
         Table table = new Table(tableName, store.getColumnHeaders(tableName));
-        Row row = new Row(table.getTableHeader());
+        Row row = new Row(table.getHeaderRow());
         while (true) {
             fillRow(table, row);
             table.addRow(row);
@@ -34,7 +34,7 @@ public class AddRecord extends Command {
             } catch (RuntimeException ex) {
                 view.writeln(ex.getMessage());
                 table = new Table(tableName, store.getColumnHeaders(tableName));
-                row = new Row(table.getTableHeader());
+                row = new Row(table.getHeaderRow());
             }
         }
         view.writeln("successful added");
@@ -46,7 +46,7 @@ public class AddRecord extends Command {
         int i = 0;
         while (i < table.getColumnCount()) {
             try {
-                view.writeln("input value for the column " + table.getCellInfos(i).toString() + " or just press 'enter' to skip input");
+                view.writeln("input value for the column " + table.getCellInfo(i).toString() + " or just press 'enter' to skip input");
                 row.getCell(i).setValue(view.read(), true);
                 i++;
             } catch (IllegalArgumentException ex) {

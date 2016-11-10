@@ -24,7 +24,7 @@ public class TableDataWhere extends Command {
         checkTableName(tableName);
         while (true) {
             try {
-                String where = createWhere(view, store.getColumnInformation(tableName));
+                String where = createWhere(view, store.getColumnHeaders(tableName));
                 Table table = store.getTableData(tableName, where);
                 view.writeln(table.toString());
                 break;

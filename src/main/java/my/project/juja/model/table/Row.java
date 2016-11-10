@@ -13,9 +13,9 @@ public class Row {
         cells = new ArrayList<>();
     }
 
-    public Row(List<CellInfo> cellsInfo) {
-        for (CellInfo cellInfo : cellsInfo) {
-            cells.add(new Cell(cellInfo));
+    public Row(List<HeaderCell> cellsInfo) {
+        for (HeaderCell headerCell : cellsInfo) {
+            cells.add(new Cell(headerCell));
         }
     }
 

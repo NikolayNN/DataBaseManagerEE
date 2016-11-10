@@ -2,7 +2,7 @@ package my.project.juja.controller.commands.table;
 
 import my.project.juja.controller.commands.Command;
 import my.project.juja.model.Storeable;
-import my.project.juja.model.table.CellInfo;
+import my.project.juja.model.table.HeaderCell;
 import my.project.juja.view.View;
 
 import java.util.ArrayList;
@@ -27,10 +27,10 @@ public class CreateTable extends Command {
         checkCountParameters(parametrs, EXPECTED_COUNT_PARAMETERS);
         String tableName = parametrs[0];
         checkName(tableName);
-        List<CellInfo> cellInfos = createCellInfos(view);
-        store.createTable(tableName, cellInfos);
+        List<HeaderCell> headerCells = createCellInfos(view);
+        store.createTable(tableName, headerCells);
         view.writeln("table '" + tableName + "' added");
-        view.writeln(cellInfos.toString());
+        view.writeln(headerCells.toString());
     }
 
     private void checkName(String tableName) {
@@ -39,14 +39,14 @@ public class CreateTable extends Command {
         }
     }
 
-    private List<CellInfo> createCellInfos(View view) {
-        List<CellInfo> cellInfos = new ArrayList<>();
+    private List<HeaderCell> createCellInfos(View view) {
+        List<HeaderCell> headerCells = new ArrayList<>();
         int columnIndex = 0;
         String command;
         main:
         while (true) {
-            CellInfo cellInfo = createColumnInfo(view, cellInfos, columnIndex++);
-            cellInfos.add(cellInfo);
+            HeaderCell headerCell = createColumnInfo(view, headerCells, columnIndex++);
+            headerCells.add(headerCell);
             second:
             while (true) {
                 view.writeln("input 'save' to save the table, input 'add' to add one more column, input 'cancel' to cancel");
@@ -65,18 +65,18 @@ public class CreateTable extends Command {
                 }
             }
         }
-        return cellInfos;
+        return headerCells;
     }
 
 
-    private CellInfo createColumnInfo(View view, List<CellInfo> cellInfos, int columnIndex) {
+    private HeaderCell createColumnInfo(View view, List<HeaderCell> headerCells, int columnIndex) {
         String columnName = inputColumnName(view);
         String type = inputColumnType(view);
         int length = inputColumnLength(view, type);
         boolean canBeNull = inputCanBeNull(view);
-        CellInfo cellInfo = new CellInfo(columnName, type, canBeNull, false, columnIndex);
-        cellInfo.setLength(length);
-        return cellInfo;
+        HeaderCell headerCell = new HeaderCell(columnName, type, canBeNull, false, columnIndex);
+        headerCell.setLength(length);
+        return headerCell;
     }
 
 

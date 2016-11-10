@@ -12,11 +12,11 @@ public class CellTest {
     @Test
     public void test() {
 //        given
-        CellInfo cellInfo = new CellInfo("columnName", "character", false, false, 0);
+        HeaderCell headerCell = new HeaderCell("columnName", "character", false, false, 0);
         String value = "columnValue";
 //when
-        Cell cell = new Cell(cellInfo, value);
+        Cell cell = new Cell(headerCell, value);
 //then
-        assertEquals("[columnName*(character)]", cell.getCellInfo().toString());
+        assertEquals("[columnName*(character)]", cell.getHeaderCell().toString());
     }
 }

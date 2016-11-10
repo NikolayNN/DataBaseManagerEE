@@ -6,8 +6,6 @@ import my.project.juja.model.table.Table;
 import my.project.juja.model.Storeable;
 import my.project.juja.view.View;
 
-import java.sql.SQLException;
-
 /**
  * Created by Nikol on 8/22/2016.
  */
@@ -25,7 +23,7 @@ public class AddRecord extends Command {
         checkCountParameters(parametrs, EXPECTED_COUNT_PARAMETERS);
         String tableName = parametrs[0];
         checkTableName(tableName);
-        Table table = new Table(tableName, store.getColumnInformation(tableName));
+        Table table = new Table(tableName, store.getColumnHeaders(tableName));
         Row row = new Row(table.getTableHeader());
         while (true) {
             fillRow(table, row);
@@ -35,7 +33,7 @@ public class AddRecord extends Command {
                 break;
             } catch (RuntimeException ex) {
                 view.writeln(ex.getMessage());
-                table = new Table(tableName, store.getColumnInformation(tableName));
+                table = new Table(tableName, store.getColumnHeaders(tableName));
                 row = new Row(table.getTableHeader());
             }
         }

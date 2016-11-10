@@ -8,11 +8,11 @@ import java.util.List;
  */
 public class Table {
     private String tableName;
-    private List<CellInfo> tableHeader;
+    private List<HeaderCell> tableHeader;
     private List<Row> rows;
     private int columnCount;
 
-    public Table(String tableName, List<CellInfo> tableHeader) {
+    public Table(String tableName, List<HeaderCell> tableHeader) {
         this.tableName = tableName;
         this.tableHeader = tableHeader;
         this.columnCount = tableHeader.size();
@@ -27,11 +27,11 @@ public class Table {
         return columnCount;
     }
 
-    public List<CellInfo> getTableHeader() {
+    public List<HeaderCell> getTableHeader() {
         return tableHeader;
     }
 
-    public CellInfo getCellInfos(int columnIndex) {
+    public HeaderCell getCellInfos(int columnIndex) {
         return tableHeader.get(columnIndex);
     }
 
@@ -51,9 +51,9 @@ public class Table {
         StringBuilder table = new StringBuilder();
         table.append("<table>");
             table.append("<tr>");
-                for (CellInfo cellInfo : tableHeader) {
+                for (HeaderCell headerCell : tableHeader) {
                     table.append("<th>");
-                        table.append(cellInfo.toString());
+                        table.append(headerCell.toString());
                     table.append("</th>");
                 }
             table.append("</tr>");

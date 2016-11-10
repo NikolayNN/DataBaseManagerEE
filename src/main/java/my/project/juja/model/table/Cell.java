@@ -4,11 +4,11 @@ package my.project.juja.model.table;
  * Created by Nikol on 8/22/2016.
  */
 public class Cell {
-    CellInfo cellInfo;
+    HeaderCell headerCell;
     String value;
 
-    public CellInfo getCellInfo() {
-        return cellInfo;
+    public HeaderCell getHeaderCell() {
+        return headerCell;
     }
 
     public String getValue() {
@@ -16,15 +16,15 @@ public class Cell {
     }
 
     public String getColumnName() {
-        return cellInfo.getColumnName();
+        return headerCell.getColumnName();
     }
 
-    public Cell(CellInfo cellInfo) {
-        this.cellInfo = cellInfo;
+    public Cell(HeaderCell headerCell) {
+        this.headerCell = headerCell;
     }
 
-    public Cell(CellInfo cellInfo, String value) {
-        this.cellInfo = cellInfo;
+    public Cell(HeaderCell headerCell, String value) {
+        this.headerCell = headerCell;
         this.value = value;
     }
 
@@ -33,8 +33,8 @@ public class Cell {
             this.value = value;
             return;
         }
-        if (value.equals("") && !cellInfo.isCanBeNull()) {
-            throw new IllegalArgumentException("column \"" + cellInfo.getColumnName() + "\" can't be null");
+        if (value.equals("") && !headerCell.isCanBeNull()) {
+            throw new IllegalArgumentException("column \"" + headerCell.getColumnName() + "\" can't be null");
         }
         this.value = value;
 

@@ -1,7 +1,6 @@
 package my.project.juja.model.table;
 
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -9,27 +8,27 @@ import static org.junit.Assert.assertEquals;
 /**
  * Created by Nikol on 9/27/2016.
  */
-public class CellInfoTest {
-    CellInfo testCellInfo;
+public class HeaderCellTest {
+    HeaderCell testHeaderCell;
 
     @Before
     public void setup() {
-        testCellInfo = new CellInfo("TestColumnName", "integer", false, false, 0);
+        testHeaderCell = new HeaderCell("TestColumnName", "integer", false, false, 0);
     }
 
     @Test
     public void getTypeTest() {
-        assertEquals("integer", testCellInfo.getType());
+        assertEquals("integer", testHeaderCell.getType());
     }
 
     @Test
     public void getLengthTest() {
-        assertEquals(0, testCellInfo.getLength());
+        assertEquals(0, testHeaderCell.getLength());
     }
 
     @Test
     public void isHasDefault() {
-        assertEquals(false, testCellInfo.isHasDefault());
+        assertEquals(false, testHeaderCell.isHasDefault());
     }
 
 }

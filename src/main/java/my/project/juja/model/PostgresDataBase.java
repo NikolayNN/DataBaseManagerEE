@@ -1,7 +1,7 @@
 package my.project.juja.model;
 
 import my.project.juja.model.table.Cell;
-import my.project.juja.model.table.CellInfo;
+import my.project.juja.model.table.HeaderCell;
 import my.project.juja.model.table.Row;
 import my.project.juja.model.table.Table;
 import my.project.juja.utils.JujaUtils;
@@ -185,7 +185,7 @@ public class PostgresDataBase implements Storeable {
     public Table getTableData(String tableName) {
         checkConnectionToServer();
         checkConnectionToDataBase();
-        Table table = new Table(tableName, getColumnInformation(tableName));
+        Table table = new Table(tableName, getColumnHeaders(tableName));
         String query = "SELECT * FROM " + tableName;
         try (Statement stmt = connectionDataBase.createStatement();
              ResultSet rs = stmt.executeQuery(query)) {
@@ -211,7 +211,7 @@ public class PostgresDataBase implements Storeable {
     public Table getTableData(String tableName, String where) {
         checkConnectionToServer();
         checkConnectionToDataBase();
-        Table table = new Table(tableName, getColumnInformation(tableName));
+        Table table = new Table(tableName, getColumnHeaders(tableName));
         String query = "SELECT * FROM " + tableName + " WHERE " + where;
         try (Statement stmt = connectionDataBase.createStatement();
             ResultSet rs = stmt.executeQuery(query)) {
@@ -258,10 +258,10 @@ public class PostgresDataBase implements Storeable {
     }
 
     @Override
-    public List<CellInfo> getColumnInformation(String tableName) {
+    public List<HeaderCell> getColumnHeaders(String tableName) {
         checkConnectionToServer();
         checkConnectionToDataBase();
-        List<CellInfo> cellInfos = new ArrayList<>();
+        List<HeaderCell> headerCells = new ArrayList<>();
         String query = "SELECT column_name, data_type, is_nullable, column_default from information_schema.columns where table_name = '" + tableName + "'";
         try (Statement stmt = connectionDataBase.createStatement();
              ResultSet rs = stmt.executeQuery(query)) {
@@ -271,14 +271,14 @@ public class PostgresDataBase implements Storeable {
                 String dataType = rs.getString(2);
                 Boolean isNullable = JujaUtils.setBoolean(rs.getString(3), "YES");
                 Boolean columnDefault = !JujaUtils.setBoolean(rs.getString(4), null);
-                CellInfo cellInfo = new CellInfo(columnName, dataType, isNullable, columnDefault, index);
-                cellInfos.add(cellInfo);
+                HeaderCell headerCell = new HeaderCell(columnName, dataType, isNullable, columnDefault, index);
+                headerCells.add(headerCell);
                 index++;
             }
         } catch (SQLException ex) {
             throw new RuntimeException(ERROR_WRONG_TABLENAME);
         }
-        return cellInfos;
+        return headerCells;
     }
 
     @Override
@@ -330,13 +330,13 @@ public class PostgresDataBase implements Storeable {
     }
 
     @Override
-    public void createTable(String tableName, List<CellInfo> cellInfos) {
+    public void createTable(String tableName, List<HeaderCell> headerCells) {
         checkConnectionToServer();
         checkConnectionToDataBase();
         try (Statement stmt = connectionDataBase.createStatement()) {
 
             String query = "CREATE TABLE " + tableName +
-                    "(" + cellInfosToSQL(cellInfos) + ")";
+                    "(" + cellInfosToSQL(headerCells) + ")";
             stmt.executeUpdate(query);
 
         } catch (SQLException ex) {
@@ -344,11 +344,11 @@ public class PostgresDataBase implements Storeable {
         }
     }
 
-    private String cellInfosToSQL(List<CellInfo> cellInfos) {
+    private String cellInfosToSQL(List<HeaderCell> headerCells) {
         StringBuilder result = new StringBuilder();
-        for (int i = 0; i < cellInfos.size(); i++) {
-            result.append(cellInfos.get(i).getCellInfoSQL());
-            if (i != cellInfos.size() - 1) {
+        for (int i = 0; i < headerCells.size(); i++) {
+            result.append(headerCells.get(i).getCellInfoSQL());
+            if (i != headerCells.size() - 1) {
                 result.append(", ");
             }
         }

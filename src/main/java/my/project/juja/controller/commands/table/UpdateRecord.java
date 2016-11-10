@@ -24,7 +24,7 @@ public class UpdateRecord extends Command {
         checkCountParameters(parametrs, COUNT_PARAMETERS);
         String tableName = parametrs[0];
         checkTableName(tableName);
-        String where = createWhere(view, store.getColumnInformation(tableName));
+        String where = createWhere(view, store.getColumnHeaders(tableName));
         Table table = getTableToUpdate(tableName, where);
         view.writeln(table.toString());
         table.addRow(new Row(table.getTableHeader()));
@@ -43,7 +43,7 @@ public class UpdateRecord extends Command {
     private void inputValuesToUpdate(Table table) {
         for (Cell cell : table.getRow(0).getCells()) {
             view.writeln("input new value or just press 'enter' to skip");
-            view.writeln(cell.getCellInfo().toString());
+            view.writeln(cell.getHeaderCell().toString());
             cell.setValue(view.read(), false);
         }
     }

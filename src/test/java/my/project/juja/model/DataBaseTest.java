@@ -159,7 +159,7 @@ public class DataBaseTest {
     @Test
     public void testAddRecord() throws SQLException {
         dataBase.clearTable(tableName);
-        Table expectedTable = new Table(tableName, dataBase.getColumnInformation(tableName));
+        Table expectedTable = new Table(tableName, dataBase.getColumnHeaders(tableName));
         Row row = new Row(expectedTable.getTableHeader());
         for (Cell cell : row.getCells()) {
             cell.setValue("235", true);
@@ -173,7 +173,7 @@ public class DataBaseTest {
     @Test(expected = RuntimeException.class)
     public void testWrongTypeValue() throws SQLException {
         dataBase.clearTable(tableName);
-        Table expectedTable = new Table(tableName, dataBase.getColumnInformation(tableName));
+        Table expectedTable = new Table(tableName, dataBase.getColumnHeaders(tableName));
         Row row = new Row(expectedTable.getTableHeader());
         for (Cell cell : row.getCells()) {
             cell.setValue("sss", true);

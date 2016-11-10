@@ -1,7 +1,7 @@
 package my.project.juja.controller.commands;
 
 import my.project.juja.model.Storeable;
-import my.project.juja.model.table.CellInfo;
+import my.project.juja.model.table.HeaderCell;
 import my.project.juja.utils.WhereConstructor;
 import my.project.juja.view.View;
 
@@ -102,8 +102,8 @@ public abstract class Command {
         }
     }
 
-    public String createWhere(View view, List<CellInfo> cellInfos) {
-        WhereConstructor whereConstructor = new WhereConstructor(view, cellInfos);
+    public String createWhere(View view, List<HeaderCell> headerCells) {
+        WhereConstructor whereConstructor = new WhereConstructor(view, headerCells);
         whereConstructor.create();
         return whereConstructor.toString();
     }

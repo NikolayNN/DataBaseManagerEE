@@ -1,10 +1,9 @@
 package my.project.juja.model;
 
-import my.project.juja.model.table.CellInfo;
+import my.project.juja.model.table.HeaderCell;
 import my.project.juja.model.table.Table;
 
 import java.sql.Connection;
-import java.sql.SQLException;
 import java.util.List;
 import java.util.Set;
 
@@ -38,7 +37,7 @@ public interface Storeable {
 
     void updateRecord(String where, Table table);
 
-    List<CellInfo> getColumnInformation(String tableName);
+    List<HeaderCell> getColumnHeaders(String tableName);
 
     Set<String> getDataBasesNames();
 
@@ -48,7 +47,7 @@ public interface Storeable {
 
     void createDataBase(String dataBaseName);
 
-    void createTable(String tableName, List<CellInfo> cellInfos);
+    void createTable(String tableName, List<HeaderCell> headerCells);
 
     void dropTable(String tableName);
 

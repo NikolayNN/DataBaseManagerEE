@@ -86,8 +86,20 @@
         <servlet-name>DropDatabase</servlet-name>
         <url-pattern>/dropdb.do</url-pattern>
     </servlet-mapping>
-    
-
-    <!--########## Servlet Listener ############-->
-
+    <servlet>
+        <servlet-name>GetTableHeaders</servlet-name>
+        <servlet-class>my.project.juja.controller.web.servlets.table.GetTableHeadersServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>GetTableHeaders</servlet-name>
+        <url-pattern>/gettableheaders.do</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>AddRecord</servlet-name>
+        <servlet-class>my.project.juja.controller.web.servlets.table.AddRecordServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddRecord</servlet-name>
+        <url-pattern>/addrecord.do</url-pattern>
+    </servlet-mapping>
 </web-app>

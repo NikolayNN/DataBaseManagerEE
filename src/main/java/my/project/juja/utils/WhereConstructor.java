@@ -1,6 +1,6 @@
 package my.project.juja.utils;
 
-import my.project.juja.model.table.CellInfo;
+import my.project.juja.model.table.HeaderCell;
 import my.project.juja.view.View;
 
 import java.util.ArrayList;
@@ -12,7 +12,7 @@ import java.util.List;
  */
 public class WhereConstructor {
     View view;
-    List<CellInfo> cellInfos;
+    List<HeaderCell> headerCells;
     List<String> supportedSym;
     String where;
 
@@ -21,9 +21,9 @@ public class WhereConstructor {
         supportedSym = new ArrayList<>(Arrays.asList(array));
     }
 
-    public WhereConstructor(View view, List<CellInfo> cellInfos) {
+    public WhereConstructor(View view, List<HeaderCell> headerCells) {
         this.view = view;
-        this.cellInfos = cellInfos;
+        this.headerCells = headerCells;
     }
 
     @Override
@@ -65,7 +65,7 @@ public class WhereConstructor {
     }
 
     private String createColumnName() {
-        view.writeln(cellInfos.toString());
+        view.writeln(headerCells.toString());
         String columnName;
         while (true) {
             view.writeln("input column name for add to condition");
@@ -81,8 +81,8 @@ public class WhereConstructor {
 
     private boolean contains(String columnName) {
         List<String> columnNames = new ArrayList<>();
-        for (CellInfo cellInfo : cellInfos) {
-            columnNames.add(cellInfo.getColumnName());
+        for (HeaderCell headerCell : headerCells) {
+            columnNames.add(headerCell.getColumnName());
         }
         return columnNames.contains(columnName);
     }

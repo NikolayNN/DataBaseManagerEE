@@ -3,7 +3,7 @@ package my.project.juja.model.table;
 /**
  * Created by Nikol on 9/10/2016.
  */
-public class CellInfo {
+public class HeaderCell {
 
     private String columnName;
     private String type;
@@ -13,7 +13,7 @@ public class CellInfo {
     private int length;
     int index;
 
-    public CellInfo(String columnName, String type, boolean isNullable, boolean hasDefaultValue, int index) {
+    public HeaderCell(String columnName, String type, boolean isNullable, boolean hasDefaultValue, int index) {
         this.columnName = columnName;
         this.type = type;
         this.isNullable = isNullable;

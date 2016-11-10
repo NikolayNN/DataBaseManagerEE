@@ -2,11 +2,10 @@ package my.project.juja.service;
 
         import my.project.juja.model.PostgresDataBase;
         import my.project.juja.model.Storeable;
+        import my.project.juja.model.table.HeaderCell;
         import my.project.juja.model.table.Table;
 
-        import java.util.HashMap;
-        import java.util.Map;
-        import java.util.Set;
+        import java.util.*;
 
 /**
  * Created by Nikol on 10/10/2016.
@@ -56,6 +55,17 @@ public class ServiceImpl implements Service {
     }
 
     @Override
+    public List<HeaderCell> getColumnHeaders(Storeable store, String tableName){
+        return store.getColumnHeaders(tableName);
+    }
+
+    public void addRecord(Storeable store, Table table){
+
+
+        store.addRecord();
+    }
+
+    @Override
     public Map<String, String> commandList() {
         Map<String, String> commands = new HashMap<>();
         commands.put("menu", "menu.do");
@@ -68,6 +78,7 @@ public class ServiceImpl implements Service {
         commands.put("Disconnect current Database", "disconnectdb.do");
         commands.put("Create new Database", "createdb.do");
         commands.put("Drop Database", "dropdb.do");
+        commands.put("Add record", "gettableheaders.do");
         return commands;
     }
 

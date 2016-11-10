@@ -24,11 +24,16 @@ public class AddRecordServlet extends HttpServlet {
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        Storeable store = (Storeable) request.getSession().getAttribute("store");
-        String tableName = request.getParameter("inputedTableName");
-        Table tableToAdd = createTable(tableName, store, request);
-        service.addRecord(store, tableToAdd);
-        response.sendRedirect("/menu.do");
+        try{
+            Storeable store = (Storeable) request.getSession().getAttribute("store");
+            String tableName = request.getParameter("inputedTableName");
+            Table tableToAdd = createTable(tableName, store, request);
+            service.addRecord(store, tableToAdd);
+            response.sendRedirect("/menu.do");
+        } catch (RuntimeException e) {
+            request.setAttribute("message", e.getMessage());
+            request.getRequestDispatcher("error.jsp").forward(request, response);
+        }
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -44,7 +49,7 @@ public class AddRecordServlet extends HttpServlet {
             for (Cell cell : row.getCells()) {
                 if(cell.getColumnName().equals(parameter)){
                     String value = request.getParameter(parameter);
-                    cell.setValue(value, false);
+                    cell.setValue(value, true);
                 }
             }
         }

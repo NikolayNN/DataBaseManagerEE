@@ -2,7 +2,7 @@ package my.project.juja.service;
 
         import my.project.juja.model.PostgresDataBase;
         import my.project.juja.model.Storeable;
-        import my.project.juja.model.table.HeaderCell;
+        import my.project.juja.model.table.HeaderRow;
         import my.project.juja.model.table.Table;
 
         import java.util.*;
@@ -55,14 +55,12 @@ public class ServiceImpl implements Service {
     }
 
     @Override
-    public List<HeaderCell> getColumnHeaders(Storeable store, String tableName){
+    public HeaderRow getColumnHeaders(Storeable store, String tableName){
         return store.getHeaderRow(tableName);
     }
 
     public void addRecord(Storeable store, Table table){
-        s
-
-        store.addRecord();
+        store.addRecord(table);
     }
 
     @Override

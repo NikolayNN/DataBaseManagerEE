@@ -2,6 +2,7 @@ package my.project.juja.controller.web.servlets.table;
 
 import my.project.juja.model.Storeable;
 import my.project.juja.model.table.HeaderCell;
+import my.project.juja.model.table.HeaderRow;
 import my.project.juja.service.Service;
 import my.project.juja.service.ServiceImpl;
 
@@ -27,9 +28,9 @@ public class GetTableHeadersServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Storeable store = (Storeable) request.getSession().getAttribute("store");
         String tableName = request.getParameter("tableName");
-        List<HeaderCell> columnHeaders = store.getHeaderRow(tableName);
-        request.setAttribute("columnHeaders", columnHeaders);
-        request.setAttribute("columnNames", getColumnNames(columnHeaders));
+        HeaderRow headerRow = store.getHeaderRow(tableName);
+        request.setAttribute("columnHeaders", headerRow.getHeaderCells());
+        request.setAttribute("columnNames", getColumnNames(headerRow.getHeaderCells()));
         request.setAttribute("inputedTableName", tableName);
         request.getRequestDispatcher("addRecord.jsp").forward(request, response);
     }

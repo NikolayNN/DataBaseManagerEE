@@ -1,10 +1,9 @@
 package my.project.juja.service;
 
 import my.project.juja.model.Storeable;
-import my.project.juja.model.table.HeaderCell;
+import my.project.juja.model.table.HeaderRow;
 import my.project.juja.model.table.Table;
 
-import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -29,7 +28,7 @@ public interface Service {
 
     void dropDatabase(Storeable store, String dbName);
 
-    List<HeaderCell> getColumnHeaders(Storeable store, String tableName);
+    HeaderRow getColumnHeaders(Storeable store, String tableName);
 
     Map<String, String> commandList();
 }

@@ -21,7 +21,7 @@
             <tr>
                 <c:forEach items="${columnNames}" var="columnName">
                     <td>
-                        <input name=${columnName} type="text"/>
+                        <input name=column${columnName} type="text"/>
                     </td>
                 </c:forEach>
             </tr>

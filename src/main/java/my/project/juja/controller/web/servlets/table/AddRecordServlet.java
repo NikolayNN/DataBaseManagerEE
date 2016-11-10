@@ -2,6 +2,7 @@ package my.project.juja.controller.web.servlets.table;
 
 import my.project.juja.model.Storeable;
 import my.project.juja.model.table.HeaderCell;
+import my.project.juja.model.table.Table;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -16,12 +17,14 @@ public class AddRecordServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Storeable store = (Storeable) request.getSession().getAttribute("store");
         String tableName = request.getParameter("inputedTableName");
+        request.getParameterNames();
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     }
 
     private void createTable(String tableName, Storeable store){
-        List<HeaderCell>
+        Table table = new Table(tableName, store.getHeaderRow(tableName));
+
     }
 }

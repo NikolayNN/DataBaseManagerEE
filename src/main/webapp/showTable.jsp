@@ -8,9 +8,26 @@
     <c:forEach items="${tables}" var="table">
         <p>${table}</p>
     </c:forEach>
+
     <form method="post" action="/showtable.do">
-        <input type="text" name="selectedtable" />
+        <input type="text" name="selectedtable"/>
+        <input type="submit" value="show">
     </form>
-    ${table}
+    <h2>${table.name}</h2>
+    <table>
+        <tr>
+            <c:forEach items="${table.headerRow.headerCells}" var="headerCell">
+                <th>${headerCell}</th>
+            </c:forEach>
+        </tr>
+            <c:forEach items="${table.rows}" var="row">
+                <tr>
+                    <c:forEach items="${row.cells}" var="cell">
+                        <td>${cell.value}</td>
+                    </c:forEach>
+                </tr>
+            </c:forEach>
+        </tr>
+    </table>
 </body>
 </html>

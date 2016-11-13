@@ -132,7 +132,7 @@ public class PostgresDataBase implements Storeable {
             String columnNames = format(row.getColumnNamesNotNull(), "");
             String columnValues = format(row.getCellValuesNotNull(), "'");
             try (Statement stmt = connectionDataBase.createStatement()) {
-                String query = "INSERT INTO " + table.getTableName() + "(" + columnNames + ")" +
+                String query = "INSERT INTO " + table.getName() + "(" + columnNames + ")" +
                         " VALUES (" + columnValues + ")";
                 stmt.executeUpdate(query);
                 stmt.close();
@@ -244,7 +244,7 @@ public class PostgresDataBase implements Storeable {
             set += cell.getColumnName() + "=" + "'" + cell.getValue() + "', ";
         }
 
-        String tableName = table.getTableName();
+        String tableName = table.getName();
         try (Statement stmt = connectionDataBase.createStatement()) {
             String query = "UPDATE " + tableName + " SET " + set + " WHERE " + where;
             stmt.executeUpdate(query);

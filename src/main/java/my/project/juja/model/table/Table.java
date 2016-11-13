@@ -7,13 +7,13 @@ import java.util.List;
  * Created by Nikol on 9/7/2016.
  */
 public class Table {
-    private String tableName; // TODO final
+    private String name; // TODO final
     private HeaderRow headerRow; // TODO final
     private List<Row> rows;
     private int columnCount;// TODO final
 
-    public Table(String tableName, HeaderRow headerRow) {
-        this.tableName = tableName;
+    public Table(String name, HeaderRow headerRow) {
+        this.name = name;
         this.headerRow = headerRow;
         this.columnCount = headerRow.size();
         rows = new ArrayList<>();
@@ -43,8 +43,8 @@ public class Table {
         return rows.get(rowIndex);
     }
 
-    public String getTableName() {
-        return tableName;
+    public String getName() {
+        return name;
     }
 
     public String toHtml(){
@@ -77,7 +77,7 @@ public class Table {
         String columnNames = printColumnNames(maxLength);
         String tableHeaderSeparator = addSymbol("", columnNames.length(), "-");
         String rows = printRows(maxLength);
-        result.append(tableName);
+        result.append(name);
         result.append("\n");
         result.append(tableHeaderSeparator);
         result.append("\n");

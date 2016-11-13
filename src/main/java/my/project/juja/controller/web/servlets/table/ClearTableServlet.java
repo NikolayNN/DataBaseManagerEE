@@ -1,7 +1,6 @@
 package my.project.juja.controller.web.servlets.table;
 
 import my.project.juja.model.Storeable;
-import my.project.juja.model.table.Table;
 import my.project.juja.service.Service;
 import my.project.juja.service.ServiceImpl;
 
@@ -12,9 +11,9 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * Created by Nikol on 11/7/2016.
+ * Created by Nikol on 11/11/2016.
  */
-public class ShowTableServlet extends HttpServlet {
+public class ClearTableServlet extends HttpServlet {
     private Service service;
 
     @Override
@@ -24,15 +23,12 @@ public class ShowTableServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Storeable store = (Storeable) request.getSession().getAttribute("store");
-        request.setAttribute("tables", service.getTableList(store));
-        Table tableToShow = service.getTableData(store, request.getParameter("selectedtable"));
-        request.setAttribute("table", tableToShow);
-        request.getRequestDispatcher("showTable.jsp").forward(request, response);
+        String tableName = request.getParameter("tableName");
+        store.clearTable(tableName);
+        response.sendRedirect("menu.do");
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        Storeable store = (Storeable) request.getSession().getAttribute("store");
-        request.setAttribute("tables", service.getTableList(store));
-        request.getRequestDispatcher("showTable.jsp").forward(request, response);
+        response.sendRedirect("clearTable.jsp");
     }
 }

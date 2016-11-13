@@ -26,6 +26,7 @@ public class MenuServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setAttribute("items", service.commandList());
         request.getRequestDispatcher("menu.jsp").forward(request, response);
+        //todo redirect to connect servlet if we hasn' connect
     }
 
 }

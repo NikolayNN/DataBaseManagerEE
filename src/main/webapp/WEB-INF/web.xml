@@ -102,4 +102,12 @@
         <servlet-name>AddRecord</servlet-name>
         <url-pattern>/addrecord.do</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>ClearTable</servlet-name>
+        <servlet-class>my.project.juja.controller.web.servlets.table.ClearTableServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ClearTable</servlet-name>
+        <url-pattern>/cleartable.do</url-pattern>
+    </servlet-mapping>
 </web-app>

@@ -7,7 +7,7 @@
 <body>
     <p>input table name</p>
     <form method="post" action="/gettableheaders.do">
-        <input type="text" name="tableName" />
+        <input type="text" name="name" />
         <input type="submit" value="next">
     </form>
     <table>

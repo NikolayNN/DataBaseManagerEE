@@ -32,5 +32,7 @@ public interface Service {
 
     void addRecord(Storeable store, Table table);
 
+    void clearTable(Storeable store, String tableName);
+
     Map<String, String> commandList();
 }

@@ -7,7 +7,7 @@
 </head>
 <body>
 <c:forEach items="${databases}" var="database">
-    <h1>${database}</h1>
+    <p>${database}</p>
 </c:forEach>
 
 </body>

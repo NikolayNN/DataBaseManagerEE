@@ -47,29 +47,6 @@ public class Table {
         return name;
     }
 
-    public String toHtml(){
-        StringBuilder table = new StringBuilder();
-        table.append("<table>");
-            table.append("<tr>");
-                for (HeaderCell headerCell : headerRow.getHeaderCells()) {
-                    table.append("<th>");
-                        table.append(headerCell.toString());
-                    table.append("</th>");
-                }
-            table.append("</tr>");
-            for (Row row : rows) {
-                table.append("<tr>");
-                for (Cell cell : row.getCells()) {
-                    table.append("<td>");
-                        table.append(cell.getValue());
-                    table.append("</td>");
-                }
-                table.append("</tr>");
-            }
-        table.append("</table>");
-        return table.toString();
-    }
-
     @Override
     public String toString() {
         StringBuilder result = new StringBuilder();

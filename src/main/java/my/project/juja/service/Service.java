@@ -34,5 +34,7 @@ public interface Service {
 
     void clearTable(Storeable store, String tableName);
 
+    void dropTable(Storeable store, String tableName);
+
     Map<String, String> commandList();
 }

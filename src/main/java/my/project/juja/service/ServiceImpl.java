@@ -70,6 +70,11 @@ public class ServiceImpl implements Service {
     }
 
     @Override
+    public void dropTable(Storeable store, String tableName){
+        store.dropTable(tableName);
+    }
+
+    @Override
     public Map<String, String> commandList() {
         Map<String, String> commands = new HashMap<>();
         commands.put("menu", "menu.do");
@@ -84,6 +89,7 @@ public class ServiceImpl implements Service {
         commands.put("Drop Database", "dropdb.do");
         commands.put("Add record", "gettableheaders.do");
         commands.put("Clear Table", "cleartable.do");
+        commands.put("Drop Table", "droptable.do");
         return commands;
     }
 

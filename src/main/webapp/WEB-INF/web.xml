@@ -110,4 +110,12 @@
         <servlet-name>ClearTable</servlet-name>
         <url-pattern>/cleartable.do</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>DropTable</servlet-name>
+        <servlet-class>my.project.juja.controller.web.servlets.table.DropTableServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DropTable</servlet-name>
+        <url-pattern>/droptable.do</url-pattern>
+    </servlet-mapping>
 </web-app>

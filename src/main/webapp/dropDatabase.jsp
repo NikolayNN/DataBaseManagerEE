@@ -14,6 +14,7 @@
     <p>input database name for drop</p>
     <form method="post" action="/dropdb.do">
         <input name="dbname" type="text" />
+        <input type="submit" value="drop">
     </form>
 </body>
 </html>

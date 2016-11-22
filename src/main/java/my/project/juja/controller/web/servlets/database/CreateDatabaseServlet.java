@@ -3,6 +3,9 @@ package my.project.juja.controller.web.servlets.database;
 import my.project.juja.model.Storeable;
 import my.project.juja.service.Service;
 import my.project.juja.service.ServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+import org.springframework.web.context.support.SpringBeanAutowiringSupport;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
@@ -14,12 +17,15 @@ import java.io.IOException;
 /**
  * Created by Nikol on 11/8/2016.
  */
+@Component
 public class CreateDatabaseServlet extends HttpServlet {
+    @Autowired
     private Service service;
 
     @Override
     public void init(ServletConfig config) throws ServletException {
-        service = new ServiceImpl();
+        super.init(config);
+        SpringBeanAutowiringSupport.processInjectionBasedOnServletContext(this, config.getServletContext());
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

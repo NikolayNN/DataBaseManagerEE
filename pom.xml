@@ -6,7 +6,7 @@
     <packaging>war</packaging>
 
     <properties>
-        <module.name>a2048</module.name>
+        <org.springframework.version>4.2.2.RELEASE</org.springframework.version>
     </properties>
 
     <groupId>my.project.DataBaseManager</groupId>
@@ -14,6 +14,17 @@
     <version>0.0.1</version>
 
     <dependencies>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context-support</artifactId>
+            <version>${org.springframework.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-web</artifactId>
+            <version>${org.springframework.version}</version>
+        </dependency>
+
         <dependency>
             <groupId>jstl</groupId>
             <artifactId>jstl</artifactId>
@@ -24,7 +35,6 @@
             <artifactId>javax.servlet-api</artifactId>
             <version>3.1.0</version>
         </dependency>
-
         <dependency>
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-lang3</artifactId>

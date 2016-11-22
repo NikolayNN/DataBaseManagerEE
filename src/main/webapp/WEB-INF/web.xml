@@ -5,6 +5,17 @@
          version="3.1">
     <display-name>DataBaseManagerEE</display-name>
 
+    <!--Spring-->
+   <context-param>
+       <param-name>contextConfigLocation</param-name>
+       <param-value>/WEB-INF/application-context.xml</param-value>
+   </context-param>
+    <listener>
+        <listener-class>
+            org.springframework.web.context.ContextLoaderListener
+        </listener-class>
+    </listener>
+
     <!--####### Servlets #########-->
     <servlet>
         <servlet-name>Menu</servlet-name>

@@ -4,12 +4,15 @@ package my.project.juja.service;
         import my.project.juja.model.Storeable;
         import my.project.juja.model.table.HeaderRow;
         import my.project.juja.model.table.Table;
+        import org.springframework.stereotype.Component;
 
         import java.util.*;
 
 /**
  * Created by Nikol on 10/10/2016.
  */
+
+@Component
 public class ServiceImpl implements Service {
 
     @Override

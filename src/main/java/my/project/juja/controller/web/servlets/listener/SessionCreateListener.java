@@ -1,7 +1,6 @@
 package my.project.juja.controller.web.servlets.listener;
 
-import my.project.juja.model.PostgresDataBase;
-import my.project.juja.service.ServiceImpl;
+import my.project.juja.model.PostgresDatabaseManger;
 
 import javax.servlet.http.HttpSessionEvent;
 import javax.servlet.http.HttpSessionListener;
@@ -12,7 +11,7 @@ import javax.servlet.http.HttpSessionListener;
 public class SessionCreateListener implements HttpSessionListener{
     @Override
     public void sessionCreated(HttpSessionEvent se) {
-        se.getSession().setAttribute("store", new PostgresDataBase());
+        se.getSession().setAttribute("store", new PostgresDatabaseManger());
     }
 
     @Override

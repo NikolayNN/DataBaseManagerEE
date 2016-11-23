@@ -2,6 +2,7 @@ package my.project.juja.model;
 
 import my.project.juja.model.table.*;
 import my.project.juja.utils.JujaUtils;
+import org.springframework.stereotype.Component;
 
 import java.sql.*;
 import java.util.*;

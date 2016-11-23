@@ -27,8 +27,8 @@ public class ShowTableServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        Service service = (Service) getServletContext().getAttribute("service");
         DatabaseManager store = (DatabaseManager) request.getSession().getAttribute("store");
-        Service service = (Service) request.getSession().getAttribute("service");
         request.setAttribute("tables", service.getTableList(store));
         request.getRequestDispatcher("showTable.jsp").forward(request, response);
     }

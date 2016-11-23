@@ -9,7 +9,7 @@ import java.util.*;
 /**
  * Created by Nikol on 4/12/2016.
  */
-public class PostgresDataBase implements Storeable {
+public class PostgresDataBase implements DatabaseManager {
     private static final String ERROR_WRONG_TABLENAME = "ERROR. check table name";
     private static final String ERROR_WRONG_COMMAND = "ERROR. check inputed commands";
     private static final String ERROR_JDBCDRIVER_NOT_FOUND = "ERROR. add jdbc driver to project";

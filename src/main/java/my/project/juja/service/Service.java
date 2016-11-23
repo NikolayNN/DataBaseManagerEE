@@ -1,6 +1,6 @@
 package my.project.juja.service;
 
-import my.project.juja.model.Storeable;
+import my.project.juja.model.DatabaseManager;
 import my.project.juja.model.table.HeaderRow;
 import my.project.juja.model.table.Table;
 
@@ -12,29 +12,29 @@ import java.util.Set;
  */
 public interface Service {
 
-    void connectToServer(Storeable store, String serverURL, String userName, String password);
+    void connectToServer(DatabaseManager store, String serverURL, String userName, String password);
 
-    void connectToDataBase(Storeable store, String dataBaseName);
+    void connectToDataBase(DatabaseManager store, String dataBaseName);
 
-    void disconnectDataBase(Storeable store);
+    void disconnectDataBase(DatabaseManager store);
 
-    Set<String> getDataBaseNames(Storeable store);
+    Set<String> getDataBaseNames(DatabaseManager store);
 
-    Set<String> getTableList(Storeable store);
+    Set<String> getTableList(DatabaseManager store);
 
-    Table getTableData(Storeable store, String tableName);
+    Table getTableData(DatabaseManager store, String tableName);
 
-    void createDatabase(Storeable store, String dbName);
+    void createDatabase(DatabaseManager store, String dbName);
 
-    void dropDatabase(Storeable store, String dbName);
+    void dropDatabase(DatabaseManager store, String dbName);
 
-    HeaderRow getColumnHeaders(Storeable store, String tableName);
+    HeaderRow getColumnHeaders(DatabaseManager store, String tableName);
 
-    void addRecord(Storeable store, Table table);
+    void addRecord(DatabaseManager store, Table table);
 
-    void clearTable(Storeable store, String tableName);
+    void clearTable(DatabaseManager store, String tableName);
 
-    void dropTable(Storeable store, String tableName);
+    void dropTable(DatabaseManager store, String tableName);
 
     Map<String, String> commandList();
 }

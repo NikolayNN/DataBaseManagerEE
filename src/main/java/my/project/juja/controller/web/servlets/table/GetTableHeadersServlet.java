@@ -1,15 +1,9 @@
 package my.project.juja.controller.web.servlets.table;
 
-import my.project.juja.model.Storeable;
+import my.project.juja.model.DatabaseManager;
 import my.project.juja.model.table.HeaderCell;
 import my.project.juja.model.table.HeaderRow;
-import my.project.juja.service.Service;
-import my.project.juja.service.ServiceImpl;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
-import org.springframework.web.context.support.SpringBeanAutowiringSupport;
 
-import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -24,7 +18,7 @@ import java.util.List;
 public class GetTableHeadersServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        Storeable store = (Storeable) request.getSession().getAttribute("store");
+        DatabaseManager store = (DatabaseManager) request.getSession().getAttribute("store");
         String tableName = request.getParameter("tableName");
         HeaderRow headerRow = store.getHeaderRow(tableName);//todo in service
         request.setAttribute("columnHeaders", headerRow.getHeaderCells());

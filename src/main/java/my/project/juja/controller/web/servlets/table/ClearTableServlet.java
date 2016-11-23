@@ -17,18 +17,10 @@ import java.io.IOException;
 /**
  * Created by Nikol on 11/11/2016.
  */
-@Component
 public class ClearTableServlet extends HttpServlet {
-    @Autowired
-    private Service service;
-
-    @Override
-    public void init(ServletConfig config) throws ServletException {
-        super.init(config);
-        SpringBeanAutowiringSupport.processInjectionBasedOnServletContext(this, config.getServletContext());
-    }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        Service service = (Service) getServletContext().getAttribute("service");
         Storeable store = (Storeable) request.getSession().getAttribute("store");
         String tableName = request.getParameter("tableName");
         store.clearTable(tableName);

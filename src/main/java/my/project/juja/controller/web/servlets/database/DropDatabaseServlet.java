@@ -18,19 +18,11 @@ import java.io.IOException;
 /**
  * Created by Nikol on 11/8/2016.
  */
-@Component
 public class DropDatabaseServlet extends HttpServlet {
-    @Autowired
-    private Service service;
-
-    @Override
-    public void init(ServletConfig config) throws ServletException {
-        super.init(config);
-        SpringBeanAutowiringSupport.processInjectionBasedOnServletContext(this, config.getServletContext());
-    }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
+            Service service = (Service) getServletContext().getAttribute("service");
             Storeable store = (Storeable) request.getSession().getAttribute("store");
             service.dropDatabase(store, request.getParameter("dbname"));
             response.sendRedirect("/menu.do");

@@ -22,21 +22,13 @@ import java.util.Set;
 @Component
 public class BasesNameServlet extends HttpServlet {
 
-    @Autowired
-    private Service service;
-
-    @Override
-    public void init(ServletConfig config) throws ServletException {
-        super.init(config);
-        SpringBeanAutowiringSupport.processInjectionBasedOnServletContext(this, config.getServletContext());
-    }
-
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
+            Service service = (Service) getServletContext().getAttribute("service");
             Storeable store = (Storeable) request.getSession().getAttribute("store");
             request.setAttribute("databases", service.getDataBaseNames(store));
             request.getRequestDispatcher("dataBases.jsp").forward(request, response);

@@ -19,19 +19,11 @@ import java.util.Enumeration;
 /**
  * Created by Nikol on 11/10/2016.
  */
-@Component
 public class AddRecordServlet extends HttpServlet {
-    @Autowired
-    private Service service;
-
-    @Override
-    public void init(ServletConfig config) throws ServletException {
-        super.init(config);
-        SpringBeanAutowiringSupport.processInjectionBasedOnServletContext(this, config.getServletContext());
-    }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try{
+            Service service = (Service) getServletContext().getAttribute("service");
             Storeable store = (Storeable) request.getSession().getAttribute("store");
             String tableName = request.getParameter("inputedTableName");
             Table tableToAdd = createTable(tableName, store, request);

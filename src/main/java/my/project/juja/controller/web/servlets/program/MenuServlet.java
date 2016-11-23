@@ -18,18 +18,10 @@ import java.io.PrintWriter;
 /**
  * Created by Nikol on 11/1/2016.
  */
-@Component
 public class MenuServlet extends HttpServlet {
-    @Autowired
-    private Service service;
-
-    @Override
-    public void init(ServletConfig config) throws ServletException {
-        super.init(config);
-        SpringBeanAutowiringSupport.processInjectionBasedOnServletContext(this, config.getServletContext());
-    }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        Service service = (Service) getServletContext().getAttribute("service");
         request.setAttribute("items", service.commandList());
         request.getRequestDispatcher("menu.jsp").forward(request, response);
         //todo redirect to connect servlet if we hasn' connect

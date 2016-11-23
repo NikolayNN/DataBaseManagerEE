@@ -11,8 +11,8 @@ import java.util.Set;
  * Created by Nikol on 10/10/2016.
  */
 public interface Service {
-    Storeable connectToServer(String serverURL, String userName, String password);
 
+    void connectToServer(Storeable store, String serverURL, String userName, String password);
 
     void connectToDataBase(Storeable store, String dataBaseName);
 

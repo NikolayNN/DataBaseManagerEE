@@ -21,21 +21,12 @@ import java.util.List;
 /**
  * Created by Nikol on 11/9/2016.
  */
-@Component
 public class GetTableHeadersServlet extends HttpServlet {
-    @Autowired
-    private Service service;
-
-    @Override
-    public void init(ServletConfig config) throws ServletException {
-        super.init(config);
-        SpringBeanAutowiringSupport.processInjectionBasedOnServletContext(this, config.getServletContext());
-    }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Storeable store = (Storeable) request.getSession().getAttribute("store");
         String tableName = request.getParameter("tableName");
-        HeaderRow headerRow = store.getHeaderRow(tableName);
+        HeaderRow headerRow = store.getHeaderRow(tableName);//todo in service
         request.setAttribute("columnHeaders", headerRow.getHeaderCells());
         request.setAttribute("columnNames", getColumnNames(headerRow.getHeaderCells()));
         request.setAttribute("inputedTableName", tableName);

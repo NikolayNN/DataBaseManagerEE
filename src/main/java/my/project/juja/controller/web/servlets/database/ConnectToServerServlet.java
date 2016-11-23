@@ -17,24 +17,16 @@ import java.io.IOException;
 /**
  * Created by Nikol on 11/2/2016.
  */
-@Component
 public class ConnectToServerServlet extends HttpServlet {
-    @Autowired
-    Service service;
-
-    @Override
-    public void init(ServletConfig config) throws ServletException {
-        super.init(config);
-        SpringBeanAutowiringSupport.processInjectionBasedOnServletContext(this, config.getServletContext());
-    }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String serverUrl = request.getParameter("serverurl");
         String userName = request.getParameter("username");
         String password = request.getParameter("password");
         try {
-            Storeable store = service.connectToServer(serverUrl, userName, password);
-            request.getSession().setAttribute("store", store);
+            Service service = (Service) getServletContext().getAttribute("service");
+            Storeable store = (Storeable) request.getSession().getAttribute("store");
+            service.connectToServer(store, serverUrl, userName, password);
             request.getSession().setAttribute("serverUrl", serverUrl);
             response.sendRedirect(response.encodeRedirectURL("menu.do"));
         } catch (Exception e) {

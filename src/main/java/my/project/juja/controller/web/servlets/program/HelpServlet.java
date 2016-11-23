@@ -11,7 +11,6 @@ import java.io.IOException;
 /**
  * Created by Nikol on 11/7/2016.
  */
-@Component
 public class HelpServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

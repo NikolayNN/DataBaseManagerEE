@@ -20,16 +20,9 @@ import java.io.IOException;
  */
 @Component
 public class ShowTableServlet extends HttpServlet {
-    @Autowired
-    private Service service;
-
-    @Override
-    public void init(ServletConfig config) throws ServletException {
-        super.init(config);
-        SpringBeanAutowiringSupport.processInjectionBasedOnServletContext(this, config.getServletContext());
-    }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        Service service = (Service) getServletContext().getAttribute("service");
         Storeable store = (Storeable) request.getSession().getAttribute("store");
         request.setAttribute("tables", service.getTableList(store));
         Table tableToShow = service.getTableData(store, request.getParameter("selectedtable"));
@@ -39,6 +32,7 @@ public class ShowTableServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Storeable store = (Storeable) request.getSession().getAttribute("store");
+        Service service = (Service) request.getSession().getAttribute("service");
         request.setAttribute("tables", service.getTableList(store));
         request.getRequestDispatcher("showTable.jsp").forward(request, response);
     }

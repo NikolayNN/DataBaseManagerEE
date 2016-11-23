@@ -129,4 +129,13 @@
         <servlet-name>DropTable</servlet-name>
         <url-pattern>/droptable.do</url-pattern>
     </servlet-mapping>
+    <!--Listeners-->
+    <listener>
+        <listener-class>my.project.juja.controller.web.servlets.listener.SessionCreateListener</listener-class>
+    </listener>
+    <listener>
+        <listener-class>
+            my.project.juja.controller.web.servlets.listener.ContextListener
+        </listener-class>
+    </listener>
 </web-app>

@@ -16,10 +16,8 @@ package my.project.juja.service;
 public class ServiceImpl implements Service {
 
     @Override
-    public Storeable connectToServer(String serverURL, String userName, String password) {
-        Storeable store = new PostgresDataBase();
+    public void connectToServer(Storeable store, String serverURL, String userName, String password) {
         store.connectToServer(serverURL, userName, password);
-        return store;
     }
 
     @Override

@@ -17,18 +17,10 @@ import java.io.IOException;
 /**
  * Created by Nikol on 11/7/2016.
  */
-@Component
 public class TableListServlet extends HttpServlet {
-    @Autowired
-    private Service service;
-
-    @Override
-    public void init(ServletConfig config) throws ServletException {
-        super.init(config);
-        SpringBeanAutowiringSupport.processInjectionBasedOnServletContext(this, config.getServletContext());
-    }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        Service service = (Service) getServletContext().getAttribute("service");
         Storeable store = (Storeable) request.getSession().getAttribute("store");
         request.setAttribute("tables", service.getTableList(store));
         request.getRequestDispatcher("tableList.jsp").forward(request, response);

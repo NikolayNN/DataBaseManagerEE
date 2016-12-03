@@ -36,5 +36,5 @@ public interface Service {
 
     void dropTable(DatabaseManager store, String tableName);
 
-    Map<String, String> commandList();
+    Map<String, String> getCommands();
 }

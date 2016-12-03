@@ -13,6 +13,11 @@ package my.project.juja.service;
 
 @Component
 public class ServiceImpl implements Service {
+    private Map<String, String> commands;
+
+    public ServiceImpl(Map<String, String> commands) {
+        this.commands = commands;
+    }
 
     @Override
     public void connectToServer(DatabaseManager store, String serverURL, String userName, String password) {
@@ -75,21 +80,7 @@ public class ServiceImpl implements Service {
     }
 
     @Override
-    public Map<String, String> commandList() {
-        Map<String, String> commands = new HashMap<>();
-        commands.put("menu", "menu.do");
-        commands.put("help", "help.do");
-        commands.put("connect to server", "connecttoserver.do");
-        commands.put("available Databases", "basesnames.do");
-        commands.put("connect to Databases", "connecttodatabase.do");
-        commands.put("available tables", "tablelist.do");
-        commands.put("Show table", "showtable.do");
-        commands.put("Disconnect current Database", "disconnectdb.do");
-        commands.put("Create new Database", "createdb.do");
-        commands.put("Drop Database", "dropdb.do");
-        commands.put("Add record", "gettableheaders.do");
-        commands.put("Clear Table", "cleartable.do");
-        commands.put("Drop Table", "droptable.do");
+    public Map<String, String> getCommands() {
         return commands;
     }
 

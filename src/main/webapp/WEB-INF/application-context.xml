@@ -12,4 +12,23 @@
         <property name="className" value="my.project.juja.model.PostgresDatabaseManger"/>
     </bean>
 
+    <bean id="serviceImpl" class="my.project.juja.service.ServiceImpl">
+        <constructor-arg>
+            <map>
+                <entry key="menu" value="menu.do"/>
+                <entry key="help" value="help.do"/>
+                <entry key="connect to server" value="connecttoserver.do"/>
+                <entry key="available Databases" value="basesnames.do"/>
+                <entry key="connect to Databases" value="connecttodatabase.do"/>
+                <entry key="available tables" value="tablelist.do"/>
+                <entry key="Show table" value="showtable.do"/>
+                <entry key="Disconnect current Database" value="disconnectdb.do"/>
+                <entry key="Create new Database" value="createdb.do"/>
+                <entry key="Drop Database" value="dropdb.do"/>
+                <entry key="Add record" value="gettableheaders.do"/>
+                <entry key="Clear Table" value="cleartable.do"/>
+                <entry key="Drop Table" value="droptable.do"/>
+            </map>
+        </constructor-arg>
+    </bean>
 </beans>

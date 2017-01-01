@@ -1,10 +1,7 @@
 package my.project.juja.controller.web.servlets.listener;
 
 
-import my.project.juja.service.DatabaseManagerFactory;
 import my.project.juja.service.Service;
-import my.project.juja.service.ServiceImpl;
-import org.springframework.context.ApplicationContext;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 
@@ -27,4 +24,5 @@ public class ContextListener implements ServletContextListener {
     public void contextDestroyed(ServletContextEvent sce) {
 
     }
+    
 }

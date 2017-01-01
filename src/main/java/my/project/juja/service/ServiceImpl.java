@@ -1,11 +1,11 @@
 package my.project.juja.service;
 
-        import my.project.juja.model.DatabaseManager;
-        import my.project.juja.model.table.HeaderRow;
-        import my.project.juja.model.table.Table;
-        import org.springframework.stereotype.Component;
+import my.project.juja.model.DatabaseManager;
+import my.project.juja.model.table.HeaderRow;
+import my.project.juja.model.table.Table;
+import org.springframework.stereotype.Component;
 
-        import java.util.*;
+import java.util.*;
 
 /**
  * Created by Nikol on 10/10/2016.
@@ -30,7 +30,7 @@ public class ServiceImpl implements Service {
     }
 
     @Override
-    public void disconnectDataBase(DatabaseManager store){
+    public void disconnectDataBase(DatabaseManager store) {
         store.disconectDataBase();
     }
 
@@ -45,37 +45,37 @@ public class ServiceImpl implements Service {
     }
 
     @Override
-    public Table getTableData(DatabaseManager store, String tableName){
+    public Table getTableData(DatabaseManager store, String tableName) {
         return store.getTableData(tableName);
     }
 
     @Override
-    public void createDatabase(DatabaseManager store, String dbName){
+    public void createDatabase(DatabaseManager store, String dbName) {
         store.createDataBase(dbName);
     }
 
     @Override
-    public void dropDatabase(DatabaseManager store, String dbName){
+    public void dropDatabase(DatabaseManager store, String dbName) {
         store.dropDataBase(dbName);
     }
 
     @Override
-    public HeaderRow getColumnHeaders(DatabaseManager store, String tableName){
+    public HeaderRow getColumnHeaders(DatabaseManager store, String tableName) {
         return store.getHeaderRow(tableName);
     }
 
     @Override
-    public void addRecord(DatabaseManager store, Table table){
+    public void addRecord(DatabaseManager store, Table table) {
         store.addRecord(table);
     }
 
     @Override
-    public void clearTable(DatabaseManager store, String tableName){
+    public void clearTable(DatabaseManager store, String tableName) {
         store.clearTable(tableName);
     }
 
     @Override
-    public void dropTable(DatabaseManager store, String tableName){
+    public void dropTable(DatabaseManager store, String tableName) {
         store.dropTable(tableName);
     }
 
@@ -83,6 +83,4 @@ public class ServiceImpl implements Service {
     public Map<String, String> getCommands() {
         return commands;
     }
-
-
 }
